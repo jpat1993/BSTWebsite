@@ -1,4 +1,4 @@
-var form = $("#example-advanced-form").show();
+var form = $("#bstform").show();
  
 form.steps({
     headerTag: "h3",

@@ -71,9 +71,13 @@ fieldset {
     padding: 0;
 }
 
+.titles {
+    font-weight: bolder;
+    color: #538753;
+}
 .example{
     font-size: small;
-    color: blue;
+    color: #808080;
 }
 .label{
     color: black;

@@ -12,32 +12,20 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/jquery.steps.css">
-        <script src="lib/modernizr-2.6.2.min.js"></script>
-        <script src="lib/jquery-1.9.1.min.js"></script>
-        <script src="lib/jquery.cookie-1.3.1.js"></script>
-        <script src="build/jquery.steps.js"></script>
+        <script src="js/modernizr-2.6.2.min.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/jquery.cookie-1.3.1.js"></script>
+        <script src="js/jquery.steps.js"></script>
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
 
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-<!--         <header>
-            <h1>Wizard Demo</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Basic</a></li>
-                    <li><a href="vertical.html">Vertical</a></li>
-                    <li><a href="tabs.html">Tabs</a></li>
-                </ul>
-            </nav>
-        </header> -->
 
         <div class="content">
             <h1>Bal Sevak Training 2015-2016 Application Form</h1>
-            <h2>Please fill out this form with as much detail as possible. If you have any questions please email sebalmandal@gmail.com. /// HOW TO SAVE// read all the questions and note it down on a separate word document for your own benefit. </h2>
+            <h4>Please fill out this form with as much detail as possible. If you have any questions please email sebalmandal@gmail.com. /// HOW TO SAVE// read all the questions and note it down on a separate word document for your own benefit. </h4>
 
             <script>
                 $(function()
@@ -49,89 +37,177 @@
                     });
                 });
             </script>
-<!-- 
-            <div id="wizard">
-                <h2>First Step</h2>
-                <section>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nulla nunc. Maecenas arcu sem, hendrerit a tempor quis, 
-                        sagittis accumsan tellus. In hac habitasse platea dictumst. Donec a semper dui. Nunc eget quam libero. Nam at felis metus. 
-                        Nam tellus dolor, tristique ac tempus nec, iaculis quis nisi.</p>
-                </section>
-
-                <h2>Second Step</h2>
-                <section>
-                    <p>Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac ligula elementum pellentesque. 
-                        In lobortis sollicitudin felis non eleifend. Morbi tristique tellus est, sed tempor elit. Morbi varius, nulla quis condimentum 
-                        dictum, nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien a diam adipiscing consectetur. 
-                        In euismod augue ullamcorper leo dignissim quis elementum arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Vestibulum leo velit, blandit ac tempor nec, ultrices id diam. Donec metus lacus, rhoncus sagittis iaculis nec, malesuada a diam. 
-                        Donec non pulvinar urna. Aliquam id velit lacus.</p>
-                </section>
-
-                <h2>Third Step</h2>
-                <section>
-                    <p>Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo condimentum dapibus. Fusce eros justo, 
-                        pellentesque non euismod ac, rutrum sed quam. Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat. 
-                        Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui commodo lectus sollicitudin in auctor mauris 
-                        venenatis.</p>
-                </section>
-
-                <h2>Forth Step</h2>
-                <section>
-                    <p>Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula vulputate. Aliquam sed sem tortor. 
-                        Quisque sed felis ut mauris feugiat iaculis nec ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae. 
-                        Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo tortor.</p>
-                </section>
-            </div> -->
 
 
-            <form id="example-advanced-form" action="#">
-                <h3>Personal Information</h3>
+
+            <form id="bstform" action="#">
+                
+                <h3>Test</h3>
                 <fieldset>
                     <legend>Personal Information</legend>
-             
-                    <label class = label for="userName-2">Full name *</label>
-                    <div class="example" dir="ltr">Akshar R Patel</div>
-                    <input id="name" name="userName" type="text" class="required">
+                    
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Full name *</label>
+                                     <div class="example" dir="ltr">Ex: Akshar R Patel</div>
+                                     <input id="name" type="text" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
 
-                    <label class = label for="userName-2">Date of Birth *</label>
-                    <div class="example" dir="ltr">01/01/2000</div>
-                    <input id="birthday" name="userName" type="text" class="required">
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Date of Birth *</label>
+                                     <div class="example" dir="ltr">Ex: 01/01/2000</div>
+                                     <input id="birthday" type="date" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+                    
 
-                    //need to do a dropdown
-                    <label class = label for="userName-2">Center *</label>
-                    <div class="example" dir="ltr">DROPDOWN</div>
-                    <input id="center" name="userName" type="text" class="required">
-
-                    <label class = label for="userName-2">Address *</label>
-                    <div class="example" dir="ltr">100 Main St</div>
-                    <input id="address" name="userName" type="text" class="required">
-
-                    <label class = label for="userName-2">City *</label>
-                    <div class="example" dir="ltr">Atlanta</div>
-                    <input id="city" name="userName" type="text" class="required">
-
-                    <label class = label for="userName-2">State *</label>
-                    <div class="example" dir="ltr">GA</div>
-                    <input id="state" name="userName" type="text" class="required">
-
-                    <label class = label for="userName-2">Zip Code *</label>
-                    <div class="example" dir="ltr">30332</div>
-                    <input id="zip" name="userName" type="text" class="required">
-
-                    <label class = label for="userName-2">Home Phone *</label>
-                    <div class="example" dir="ltr">404-999-1111</div>
-                    <input id="homephone" name="userName" type="text" class="required">
-
-
-                    <label class = label for="userName-2">Cell Phone *</label>
-                    <div class="example" dir="ltr">404-999-1111</div>
-                    <input id="cell" name="userName" type="text" class="required">
+                     <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Center *</label>
+                                        <select class="form-control required" id = "center">
+                                            <option disabled selected> -- Select a Center -- </option>
+                                           <option value="Albany, GA">Albany, GA</option>
+                                           <option value="Atlanta">Atlanta</option> 
+                                           <option value="Birmingham">Birmingham</option>
+                                           <option value="Charlotte">Charlotte</option>
+                                           <option value="Chattanooga">Chattanooga</option>
+                                           <option value="Jacksonville">Jacksonville</option> 
+                                           <option value="Knoxville">Knoxville</option> 
+                                           <option value="Miami">Miami</option> 
+                                           <option value="Nashville">Nashville</option> 
+                                           <option value="Orlando">Orlando</option> 
+                                           <option value="Perry">Perry</option> 
+                                           <option value="Raleigh">Raleigh</option> 
+                                           <option value="Tampa">Tampa</option> 
+                                           <option value="Savannah">Savannah</option> 
+                                           <option value="Orangeburg">Orangeburg</option> 
+                                           <option value="Columbia">Columbia</option>
+                                        </select>
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
 
 
-                    <label class = label for="userName-2">Email *</label>
-                    <div class="example" dir="ltr">bst@gmail.com</div>
-                    <input id="email" name="userName" type="text" class="required">
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Address *</label>
+                                     <div class="example" dir="ltr">Ex: 100 Main St</div>
+                                     <input id="address" type="text" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">City *</label>
+                                     <div class="example" dir="ltr">Ex: Atlanta</div>
+                                     <input id="city" type="text" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">State *</label>
+                                     <div class="example" dir="ltr">Ex: GA</div>
+                                     <input id="state" type="text" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Zip Code *</label>
+                                     <div class="example" dir="ltr">Ex: 30332</div>
+                                     <input id="zip" type="text" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+                    
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Home Phone *</label>
+                                     <div class="example" dir="ltr">Ex: 404-999-1111</div>
+                                     <input id="homephone" type="tel" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Cell Phone *</label>
+                                     <div class="example" dir="ltr">Ex: 404-999-1111</div>
+                                     <input id="cell" type="tel" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Email *</label>
+                                     <div class="example" dir="ltr">Ex: bst@gmail.com</div>
+                                     <input id="email" type="email" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Password *</label>
+                                     <input id="password" name = "password" type="text" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                                <div class="form-group">
+                                     <label class = "titles">Confirm Password *</label>
+                                     <input id="confirm" name = "confirm" type="text" class="form-control required">
+                                </div>
+                            
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                    <p>(*) Mandatory</p>
+                </fieldset>
+
+
+
+
+                <h3>Personal Information</h3>
+
+
+               <fieldset>
+                    <legend>Personal Information</legend>
 
                     <label class = label for="password-2">Password *</label>
                     <input id="password" name="password" type="text" class="required">
@@ -250,17 +326,20 @@
                 <h3>Essay Section</h3>
                 <fieldset>
                     <legend>Essay</legend>
-             
+                    
                     <label for="name-2">What do you expect to learn from Bal Sevak Training? *</label>
                     <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
+                    <textarea id="essay1" class="form-control" rows="5"></textarea>
                     <input id="essay1" name="name" type="text" class="required">
 
                     <label for="surname-2">Tell us something about yourself that we may not know by reading your application (can include honors, awards and extracurricular activities). *</label>
                     <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
+                    <textarea id="essay2" class="form-control" rows="5"></textarea>
                     <input id="essay2" name="surname" type="text" class="required">
 
                     <label for="surname-2">Explain who Swamibapa is to you in your life (text book answers such as “He is Akshar” or “He is the Guru that takes me out of darkness and into the light” will not be accepted). *</label>
                     <div class="example" dir="ltr">Please answer in 1-3 sentences</div>
+                    <textarea id="essay3" class="form-control" rows="5"></textarea>
                     <input id="essay3" name="surname" type="text" class="required">
                     
                     <p>(*) Mandatory</p>
@@ -461,6 +540,6 @@
 
 
         </div>
-               <script src="lib/app.js"></script>
+               <script src="js/app.js"></script>
     </body>
 </html>
