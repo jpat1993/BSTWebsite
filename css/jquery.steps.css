@@ -222,7 +222,7 @@
 {
     position: relative;
     display: block;
-    text-align: right;
+    text-align: center;
     width: 100%;
 }
 
@@ -263,6 +263,10 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+
+    width: 250px;
+    text-align: center;
+    font-size: x-large;
 }
 
 .wizard > .actions .disabled a,

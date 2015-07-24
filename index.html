@@ -6,19 +6,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Test File</title>
+        <title>BST Application</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/jquery.steps.css">
-        <script src="js/modernizr-2.6.2.min.js"></script>
-        <script src="js/jquery-1.9.1.min.js"></script>
-        <script src="js/jquery.cookie-1.3.1.js"></script>
-        <script src="js/jquery.steps.js"></script>
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <script src="js/bootstrap.min.js"></script>
+<!--         <link rel="stylesheet" href="css/normalize.css">
+         -->        
+         <link rel="stylesheet" href="css/main.css">
+<!--         <link rel="stylesheet" href="css/jquery.steps.css">
+ --><!--         <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+<!--         // <script src="js/modernizr-2.6.2.min.js"></script>
+
+// <script src="js/jquery.cookie-1.3.1.js"></script>
+// <script src="js/jquery.steps.js"></script> -->
+        
 
     </head>
     <body>
@@ -26,520 +26,493 @@
         <div class="content">
             <h1>Bal Sevak Training 2015-2016 Application Form</h1>
             <h4>Please fill out this form with as much detail as possible. If you have any questions please email sebalmandal@gmail.com. /// HOW TO SAVE// read all the questions and note it down on a separate word document for your own benefit. </h4>
+        </div>
 
-            <script>
-                $(function()
-                {
-                    $("#wizard").steps({
-                        headerTag: "h2",
-                        bodyTag: "section",
-                        transitionEffect: "slideLeft"
-                    });
-                });
-            </script>
+        <form id="msform">
+
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Personal Information</li>
+                <li>Parental Information</li>
+                <li>Sanchalak Information</li>
+                <li>Academic Information</li>
+                <li>Satsang Exam</li>
+                <li>Essay</li>
+                <li>Niyam Assessment</li>
+                <li>Finish</li>
 
 
+            </ul>
+            
+            <fieldset>
 
-            <form id="bstform" action="#">
+                <h2 class="fs-title">Personal Information</h2>
+                <h3 class="fs-subtitle">Please enter your personal information with as much details as possible.</h3>
                 
-                <h3>Test</h3>
-                <fieldset>
-                    <legend>Personal Information</legend>
-                    
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Full name *</label>
-                                     <div class="example" dir="ltr">Ex: Akshar R Patel</div>
-                                     <input id="name" type="text" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
+                <div class="form-group">
+                                 <label class = "titles">Full name *</label>
+                                 <div class="example" dir="ltr">Ex: Akshar R Patel</div>
+                                 <input id="name" type="text" class="form-control required">
+                </div>
+                
+                <div class="form-group">
+                                 <label class = "titles">Date of Birth *</label>
+                                 <div class="example" dir="ltr">Ex: 01/01/2000</div>
+                                 <input id="birthday" type="date" class="form-control required">
+                            </div>
+                <div class="form-group">
+                                 <label class = "titles">Center *</label>
+                                 <div class="example"></div>
+                                    <select class="input required" id = "center">
+                                        <option disabled selected> -- Select a Center -- </option>
+                                       <option value="Albany, GA">Albany, GA</option>
+                                       <option value="Atlanta">Atlanta</option> 
+                                       <option value="Birmingham">Birmingham</option>
+                                       <option value="Charlotte">Charlotte</option>
+                                       <option value="Chattanooga">Chattanooga</option>
+                                       <option value="Jacksonville">Jacksonville</option> 
+                                       <option value="Knoxville">Knoxville</option> 
+                                       <option value="Miami">Miami</option> 
+                                       <option value="Nashville">Nashville</option> 
+                                       <option value="Orlando">Orlando</option> 
+                                       <option value="Perry">Perry</option> 
+                                       <option value="Raleigh">Raleigh</option> 
+                                       <option value="Tampa">Tampa</option> 
+                                       <option value="Savannah">Savannah</option> 
+                                       <option value="Orangeburg">Orangeburg</option> 
+                                       <option value="Columbia">Columbia</option>
+                                    </select>
+                            </div>
+                 <div class="form-group">
+                                 <label class = "titles">Address *</label>
+                                 <div class="example" dir="ltr">Ex: 100 Main St</div>
+                                 <input id="address" type="text" class="form-control required">
+                            </div>
+                <div class="form-group">
+                                 <label class = "titles">City *</label>
+                                 <div class="example" dir="ltr">Ex: Atlanta</div>
+                                 <input id="city" type="text" class="form-control required">
+                            </div>
+                <div class="form-group">
+                                 <label class = "titles">State *</label>
+                                 <div class="example" dir="ltr">Ex: GA</div>
+                                 <input id="state" type="text" class="form-control required">
+                            </div>
+                        
+                <div class="form-group">
+                                 <label class = "titles">Zip Code *</label>
+                                 <div class="example" dir="ltr">Ex: 30332</div>
+                                 <input id="zip" type="text" class="form-control required">
+                            </div>
+                <div class="form-group">
+                                 <label class = "titles">Home Phone *</label>
+                                 <div class="example" dir="ltr">Ex: 404-999-1111</div>
+                                 <input id="homephone" type="tel" class="form-control required">
+                            </div>
+                <div class="form-group">
+                                 <label class = "titles">Cell Phone *</label>
+                                 <div class="example" dir="ltr">Ex: 404-999-1111</div>
+                                 <input id="cell" type="tel" class="form-control required">
+                            </div>
+                <div class="form-group">
+                                 <label class = "titles">Email *</label>
+                                 <div class="example" dir="ltr">Ex: bst@gmail.com</div>
+                                 <input id="email" type="email" class="form-control required">
+                            </div>
+                 <div class="form-group">
+                                 <label class = "titles">Password *</label>
+                                 <div class="example"></div>
+                                 <input id="password" name = "password" type="text" class="form-control required">
+                            </div>
+                <div class="form-group">
+                                 <label class = "titles">Confirm Password *</label>
+                                 <div class="example"></div>
+                                 <input id="confirm" name = "confirm" type="text" class="form-control required">
+                            </div>
 
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Date of Birth *</label>
-                                     <div class="example" dir="ltr">Ex: 01/01/2000</div>
-                                     <input id="birthday" type="date" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-                    
+                
+                <p>(*) Mandatory</p>
+                
+                <input type="button" name="next" class="next action-button" value="Next" />
 
-                     <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Center *</label>
-                                        <select class="form-control required" id = "center">
-                                            <option disabled selected> -- Select a Center -- </option>
-                                           <option value="Albany, GA">Albany, GA</option>
-                                           <option value="Atlanta">Atlanta</option> 
-                                           <option value="Birmingham">Birmingham</option>
-                                           <option value="Charlotte">Charlotte</option>
-                                           <option value="Chattanooga">Chattanooga</option>
-                                           <option value="Jacksonville">Jacksonville</option> 
-                                           <option value="Knoxville">Knoxville</option> 
-                                           <option value="Miami">Miami</option> 
-                                           <option value="Nashville">Nashville</option> 
-                                           <option value="Orlando">Orlando</option> 
-                                           <option value="Perry">Perry</option> 
-                                           <option value="Raleigh">Raleigh</option> 
-                                           <option value="Tampa">Tampa</option> 
-                                           <option value="Savannah">Savannah</option> 
-                                           <option value="Orangeburg">Orangeburg</option> 
-                                           <option value="Columbia">Columbia</option>
-                                        </select>
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-
-
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Address *</label>
-                                     <div class="example" dir="ltr">Ex: 100 Main St</div>
-                                     <input id="address" type="text" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">City *</label>
-                                     <div class="example" dir="ltr">Ex: Atlanta</div>
-                                     <input id="city" type="text" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">State *</label>
-                                     <div class="example" dir="ltr">Ex: GA</div>
-                                     <input id="state" type="text" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Zip Code *</label>
-                                     <div class="example" dir="ltr">Ex: 30332</div>
-                                     <input id="zip" type="text" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-                    
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Home Phone *</label>
-                                     <div class="example" dir="ltr">Ex: 404-999-1111</div>
-                                     <input id="homephone" type="tel" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Cell Phone *</label>
-                                     <div class="example" dir="ltr">Ex: 404-999-1111</div>
-                                     <input id="cell" type="tel" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Email *</label>
-                                     <div class="example" dir="ltr">Ex: bst@gmail.com</div>
-                                     <input id="email" type="email" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
+            </fieldset>
 
 
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Password *</label>
-                                     <input id="password" name = "password" type="text" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
+         
+            <fieldset>
 
 
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4">
-                                <div class="form-group">
-                                     <label class = "titles">Confirm Password *</label>
-                                     <input id="confirm" name = "confirm" type="text" class="form-control required">
-                                </div>
-                            
-                        </div><!-- /.col-lg-4 -->
-                    </div><!-- /.row -->
-
-                    <p>(*) Mandatory</p>
-                </fieldset>
-
-
-
-
-                <h3>Personal Information</h3>
-
-
-               <fieldset>
-                    <legend>Personal Information</legend>
-
-                    <label class = label for="password-2">Password *</label>
-                    <input id="password" name="password" type="text" class="required">
-
-                    <label class = label for="confirm-2">Confirm Password *</label>
-                    <input id="confirm" name="confirm" type="text" class="required">\
-
-
-                    <p>(*) Mandatory</p>
-                </fieldset>
-             
-                <h3>Parental Information</h3>
-                <fieldset>
-                    <legend>Parental Information</legend>
-             
-                    <label for="name-2">Father's Full Name *</label>
+                <h2 class="fs-title">Parental Information</h2>
+                <h3 class="fs-subtitle">Please enter your parents information with as much detail as possible. You must include one parents email address.</h3>
+                
+                <div class="form-group">
+                    <label class = "titles">Father's Full Name *</label>
                     <div class="example" dir="ltr">Haribhai Patel</div>
                     <input id="father" name="name" type="text" class="required">
 
-                    <label for="surname-2">Father's Mobile Number *</label>
-                    <div class="example" dir="ltr">404-999-1111</div>
-                    <input id="fatherPhone" name="surname" type="text" class="required">
-
-                    <label for="email-2">Father's Email *</label>
+                </div>
+                
+                <div class="form-group">
+                     <label class = "titles">Father's Mobile Number *</label>
+                     <div class="example" dir="ltr">Ex: 404-999-1111</div>
+                     <input id="fatherPhone" type="tel" class="required">
+                </div>
+                
+                 <div class="form-group">
+                    <label class = "titles">Father's Email *</label>
                     <div class="example" dir="ltr">father@gmail.com</div>
-                    <input id="fatherEmail" name="email" type="text" class="required email">
-                    
-                    <label for="name-2">Mother's Full Name *</label>
-                    <div class="example" dir="ltr">Haribhai Patel</div>
+                    <input id="fatherEmail" name="email" type="text" class="required">
+                </div>
+
+                 <div class="form-group">
+                    <label class = "titles">Mother's Full Name *</label>
+                    <div class="example" dir="ltr">Shilpaben Patel</div>
                     <input id="mother" name="name" type="text" class="required">
 
-                    <label for="surname-2">Mother's Mobile Number *</label>
-                    <div class="example" dir="ltr">404-999-1111</div>
-                    <input id="motherPhone" name="surname" type="text" class="required">
+                </div>
+                
+                <div class="form-group">
+                     <label class = "titles">Mother's Mobile Number *</label>
+                     <div class="example" dir="ltr">Ex: 404-999-1111</div>
+                     <input id="motherPhone" type="tel" class="required">
+                </div>
+                
+                 <div class="form-group">
+                    <label class = "titles">Mother's Email *</label>
+                    <div class="example" dir="ltr">father@gmail.com</div>
+                    <input id="motherEmail" name="email" type="text" class="required">
+                </div>
+                
+                <p>(*) Mandatory</p>
 
-                    <label for="email-2">Mother's Email *</label>
-                    <div class="example" dir="ltr">mother@gmail.com</div>
-                    <input id="motherEmail" name="email" type="text" class="required email">
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+         
 
-                    
-                    <p>(*) Mandatory</p>
-                </fieldset>
-             
-                 <h3>Sanchalak Information</h3>
-                <fieldset>
-                    <legend>Sanchalak Information</legend>
-             
-                    <label for="name-2">Main Sanchalak's Full Name *</label>
+            <fieldset>
+                <h2 class="fs-title">Sanchalak Information</h2>
+                <h3 class="fs-subtitle">Please enter your sanchalak's information.</h3>
+                
+
+                <div class="form-group">
+                    <label class = "titles">Main Sanchalak's Full Name *</label>
                     <div class="example" dir="ltr">Haribhai Patel</div>
-                    <input id="father" name="name" type="text" class="required">
+                    <input id="sanchalak" name="name" type="text" class="required">
 
-                    <label for="surname-2">Main Sanchalak's Mobile Number *</label>
-                    <div class="example" dir="ltr">404-999-1111</div>
-                    <input id="fatherPhone" name="surname" type="text" class="required">
+                </div>
+                
+                <div class="form-group">
+                     <label class = "titles">Main Sanchalak's Mobile Number *</label>
+                     <div class="example" dir="ltr">Ex: 404-999-1111</div>
+                     <input id="sanchalakPhone" type="tel" class="required">
+                </div>
+                
+                 <div class="form-group">
+                    <label class = "titles">Main Sanchalak's Email *</label>
+                    <div class="example" dir="ltr">sanchalak@gmail.com<</div>
+                    <input id="sanchalakEmail" name="email" type="text" class="required">
+                </div>
 
-                    <label for="email-2">Main Sanchalak's Email *</label>
-                    <div class="example" dir="ltr">sanchalak@gmail.com</div>
-                    <input id="fatherEmail" name="email" type="text" class="required email">
-                    
-            
-
-                    
-                    <p>(*) Mandatory</p>
-                </fieldset>
+                
+                <p>(*) Mandatory</p>
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
 
 
-                <h3>Academic Information</h3>
-                <fieldset>
-                    <legend>Academic Information</legend>
-             
-                    <label for="name-2">Grade*</label>
-                    <div class="example" dir="ltr">Grade you will be in during the 2015-2016 school year</div>
+            <fieldset>
+                <h2 class="fs-title">Academic Information</h2>
+                <h3 class="fs-subtitle">Please fill in all information about your academic studies in as much detail as possible. Your answers will be held confidential.</h3>
+                
+
+                <div class="form-group">
+                    <label class = "titles">Grade *</label>
+                    <div class="example" dir="ltr">sanchalak@gmail.com<</div>
                     <input id="grade" name="name" type="text" class="required">
+                </div>
 
-                    <label for="surname-2">Math *</label>
-                    <div class="example" dir="ltr">Last years grade in the subject listed above</div>
-                    <input id="math" name="surname" type="text" class="required">
 
-                    <label for="surname-2">English/Language *</label>
-                    <div class="example" dir="ltr">Last years grade in the subject listed above</div>
-                    <input id="engligh" name="surname" type="text" class="required">
+                <label class="titles">Grade *</label>
+                <div class="example" dir="ltr">Grade you will be in during the 2015-2016 school year</div>
+                <input id="grade" name="name" type="text" class="required">
 
-                    <label for="surname-2">Foreign Language *</label>
-                    <div class="example" dir="ltr">Last years grade in the subject listed above</div>
-                    <input id="foreign" name="surname" type="text" class="required">
+                <label for="surname-2">Math *</label>
+                <div class="example" dir="ltr">Last years grade in the subject listed above</div>
+                <input id="math" name="surname" type="text" class="required">
 
-                    <label for="surname-2">Science *</label>
-                    <div class="example" dir="ltr">Last years grade in the subject listed above</div>
-                    <input id="science" name="surname" type="text" class="required">
+                <label for="surname-2">English/Language *</label>
+                <div class="example" dir="ltr">Last years grade in the subject listed above</div>
+                <input id="engligh" name="surname" type="text" class="required">
 
-                    <label for="surname-2">History/Social Studies *</label>
-                    <div class="example" dir="ltr">Last years grade in the subject listed above</div>
-                    <input id="History" name="surname" type="text" class="required">
-                    
-                    <p>(*) Mandatory</p>
-                </fieldset>
+                <label for="surname-2">Foreign Language *</label>
+                <div class="example" dir="ltr">Last years grade in the subject listed above</div>
+                <input id="foreign" name="surname" type="text" class="required">
+
+                <label for="surname-2">Science *</label>
+                <div class="example" dir="ltr">Last years grade in the subject listed above</div>
+                <input id="science" name="surname" type="text" class="required">
+
+                <label for="surname-2">History/Social Studies *</label>
+                <div class="example" dir="ltr">Last years grade in the subject listed above</div>
+                <input id="History" name="surname" type="text" class="required">
+                
+                <p>(*) Mandatory</p>
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+
+            
+           
+            <fieldset>
+                <legend>Satsang Exam</legend>
+         
+                <label for="name-2">Satsang Vihar - 1*</label>
+                <div class="example" dir="ltr">Please select the score you recieved</div>
+                <input id="vihar1" name="name" type="text" class="required">
+
+                <label for="surname-2">Satsang Vihar - 1 *</label>
+                <div class="example" dir="ltr">Please select the score you recieved</div>
+                <input id="vihar2" name="surname" type="text" class="required">
+                
+                <p>(*) Mandatory</p>
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+
+        
+            <fieldset>
+                <legend>Essay</legend>
+                
+                <label for="name-2">What do you expect to learn from Bal Sevak Training? *</label>
+                <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
+                <textarea id="essay1" class="form-control" rows="5"></textarea>
+                <input id="essay1" name="name" type="text" class="required">
+
+                <label for="surname-2">Tell us something about yourself that we may not know by reading your application (can include honors, awards and extracurricular activities). *</label>
+                <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
+                <textarea id="essay2" class="form-control" rows="5"></textarea>
+                <input id="essay2" name="surname" type="text" class="required">
+
+                <label for="surname-2">Explain who Swamibapa is to you in your life (text book answers such as “He is Akshar” or “He is the Guru that takes me out of darkness and into the light” will not be accepted). *</label>
+                <div class="example" dir="ltr">Please answer in 1-3 sentences</div>
+                <textarea id="essay3" class="form-control" rows="5"></textarea>
+                <input id="essay3" name="surname" type="text" class="required">
+                
+                <p>(*) Mandatory</p>
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+
+            
+           
+            <!-- <h5>Please choose the appropriate answers honestly based on your niyams. Your answers will be held confidential. You must answer all the questions. <h5> -->
+            <fieldset>
+                <legend>Niyam Assessment</legend>
+                
+                // dropdown
+                <label for="name-2">Do you watch TV? </label>
+                <div class="example" dir="ltr">0    I watch more than 10 hours of TV per week.
+                                                1   I watch 5-10 hours of shows, sports or news per week.
+                                                2   I watch less than 5 hours of shows, sports or news per week.
+                                                3   I don't watch TV.</div>
+                <input id="tv" name="name" type="text" class="required">
+
+                <label for="surname-2">Do you watch movies?</label>
+                <div class="example" dir="ltr">0    I watch at least one movie a day.
+                                                1   I watch a movie or documentary a few times a week
+                                                2   I watch a movie or documentary a few times a month
+                                                3   I watch only documentaries or do not watch movies.</div>
+                <input id="movie" name="surname" type="text" class="required">
 
                 
-                <h3>Satsang Exam History</h3>
-                <fieldset>
-                    <legend>Satsang Exam</legend>
-             
-                    <label for="name-2">Satsang Vihar - 1*</label>
-                    <div class="example" dir="ltr">Please select the score you recieved</div>
-                    <input id="vihar1" name="name" type="text" class="required">
 
-                    <label for="surname-2">Satsang Vihar - 1 *</label>
-                    <div class="example" dir="ltr">Please select the score you recieved</div>
-                    <input id="vihar2" name="surname" type="text" class="required">
-                    
-                    <p>(*) Mandatory</p>
-                </fieldset>
-
-                
-
-                <h3>Essay Section</h3>
-                <fieldset>
-                    <legend>Essay</legend>
-                    
-                    <label for="name-2">What do you expect to learn from Bal Sevak Training? *</label>
-                    <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
-                    <textarea id="essay1" class="form-control" rows="5"></textarea>
-                    <input id="essay1" name="name" type="text" class="required">
-
-                    <label for="surname-2">Tell us something about yourself that we may not know by reading your application (can include honors, awards and extracurricular activities). *</label>
-                    <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
-                    <textarea id="essay2" class="form-control" rows="5"></textarea>
-                    <input id="essay2" name="surname" type="text" class="required">
-
-                    <label for="surname-2">Explain who Swamibapa is to you in your life (text book answers such as “He is Akshar” or “He is the Guru that takes me out of darkness and into the light” will not be accepted). *</label>
-                    <div class="example" dir="ltr">Please answer in 1-3 sentences</div>
-                    <textarea id="essay3" class="form-control" rows="5"></textarea>
-                    <input id="essay3" name="surname" type="text" class="required">
-                    
-                    <p>(*) Mandatory</p>
-                </fieldset>
-
-                
-                <h3>Niyam Assessment</h3>
-                <!-- <h5>Please choose the appropriate answers honestly based on your niyams. Your answers will be held confidential. You must answer all the questions. <h5> -->
-                <fieldset>
-                    <legend>Niyam Assessment</legend>
-                    
-                    // dropdown
-                    <label for="name-2">Do you watch TV? </label>
-                    <div class="example" dir="ltr">0    I watch more than 10 hours of TV per week.
-                                                    1   I watch 5-10 hours of shows, sports or news per week.
-                                                    2   I watch less than 5 hours of shows, sports or news per week.
-                                                    3   I don't watch TV.</div>
-                    <input id="tv" name="name" type="text" class="required">
-
-                    <label for="surname-2">Do you watch movies?</label>
-                    <div class="example" dir="ltr">0    I watch at least one movie a day.
-                                                    1   I watch a movie or documentary a few times a week
-                                                    2   I watch a movie or documentary a few times a month
-                                                    3   I watch only documentaries or do not watch movies.</div>
-                    <input id="movie" name="surname" type="text" class="required">
-
-                    
-
-                    <label for="surname-2">How do you use the Internet?</label>
-                    <div class="example" dir="ltr">0    I use the internet only for chatting, surfing the web or checking Facebook, etc.
-                    2   I use the internet for chatting, surfing the web or checking Facebook, etc and for satsang/school   purposes.
-                    4   I use the internet for Satsang (kids.baps.org for example) or school purposes only.</div>
-                    <input id="internet" name="surname" type="text" class="required">
+                <label for="surname-2">How do you use the Internet?</label>
+                <div class="example" dir="ltr">0    I use the internet only for chatting, surfing the web or checking Facebook, etc.
+                2   I use the internet for chatting, surfing the web or checking Facebook, etc and for satsang/school   purposes.
+                4   I use the internet for Satsang (kids.baps.org for example) or school purposes only.</div>
+                <input id="internet" name="surname" type="text" class="required">
 
 
-                    <label for="surname-2">Do you bow down to your parents?</label>
-                    <div class="example" dir="ltr">0    I do not bow down to my parents.
-                                                    1   I bow down to them on special occassions.
-                                                    2   I bow down to my parents a few days a week.
-                                                    3   I bow down (not panchang pranam) to my parents daily.
-                                                    4   I do panchang pranam to my parents daily.</div>
-                    <input id="bow" name="surname" type="text" class="required">
+                <label for="surname-2">Do you bow down to your parents?</label>
+                <div class="example" dir="ltr">0    I do not bow down to my parents.
+                                                1   I bow down to them on special occassions.
+                                                2   I bow down to my parents a few days a week.
+                                                3   I bow down (not panchang pranam) to my parents daily.
+                                                4   I do panchang pranam to my parents daily.</div>
+                <input id="bow" name="surname" type="text" class="required">
 
 
-                    <label for="surname-2">Do you swear (curse)?</label>
-                    <div class="example" dir="ltr">0    I use profanity (in any language) at mandir, home or school.
-                                                    2   I do not use profanity (in any language) at mandir, but use it at home or school.
-                                                    4   I do not use profanity (in any language) at mandir, home, and school (anywhere).</div>
-                    <input id="curse" name="surname" type="text" class="required">
+                <label for="surname-2">Do you swear (curse)?</label>
+                <div class="example" dir="ltr">0    I use profanity (in any language) at mandir, home or school.
+                                                2   I do not use profanity (in any language) at mandir, but use it at home or school.
+                                                4   I do not use profanity (in any language) at mandir, home, and school (anywhere).</div>
+                <input id="curse" name="surname" type="text" class="required">
 
 
-                    <label for="surname-2">Do you say shloka before you eat?</label>
-                    <div class="example" dir="ltr">0    I do not do shloka before I eat.
-                                                    1   I only say shloka whenever I remember.
-                                                    2   I offer mentally food to Maharaj and Swami whenever I eat, but don't say shloka.
-                                                    3   I say the shloka before I eat.</div>
-                    <input id="shloka" name="surname" type="text" class="required">
+                <label for="surname-2">Do you say shloka before you eat?</label>
+                <div class="example" dir="ltr">0    I do not do shloka before I eat.
+                                                1   I only say shloka whenever I remember.
+                                                2   I offer mentally food to Maharaj and Swami whenever I eat, but don't say shloka.
+                                                3   I say the shloka before I eat.</div>
+                <input id="shloka" name="surname" type="text" class="required">
 
 
-                    <label for="surname-2">Are you a complete vegetarian?</label>
-                    <div class="example" dir="ltr">0    I eat meat (any type of animal including chicken and fish).
+                <label for="surname-2">Are you a complete vegetarian?</label>
+                <div class="example" dir="ltr">0    I eat meat (any type of animal including chicken and fish).
 1   I do not eat cooked meat, but eat products that contain eggs or gelatin.
 3   I do not eat cooked meat or products that contain eggs or gelatin, but do eat food with onions or garlic.
 5   I am a complete vegetarian (i.e., I do not eat meat, eggs, gelatin, onion or garlic).</div>
-                    <input id="vege" name="surname" type="text" class="required">
-                    
+                <input id="vege" name="surname" type="text" class="required">
+                
 
-                    <label for="surname-2">Do you eat out?</label>
-                    <div class="example" dir="ltr">0    I eat out at all types of restaurants.
+                <label for="surname-2">Do you eat out?</label>
+                <div class="example" dir="ltr">0    I eat out at all types of restaurants.
 1   I eat out but I make sure my food does not contain eggs, onion or garlic.
 2   I eat out, but I do not eat grilled or cooked food and I make sure my food does not contain eggs, onion or garlic.
 3   I do not eat out.</div>
-                    <input id="eatout" name="surname" type="text" class="required">
+                <input id="eatout" name="surname" type="text" class="required">
 
-                    <label for="surname-2">Do you do Ekadashi?</label>
-                    <div class="example" dir="ltr">0    I do not do Ekadashi at all.
+                <label for="surname-2">Do you do Ekadashi?</label>
+                <div class="example" dir="ltr">0    I do not do Ekadashi at all.
 1   I do Ekadashi sometimes, but not all the time.
 2   I do all the Ekadashi and eat farari foods.
 3   I do all the Ekadashi and eat farari foods.  I also do the 5 main nirjala's.
 </div>
-                    <input id="ekadashi" name="surname" type="text" class="required">
+                <input id="ekadashi" name="surname" type="text" class="required">
 
-                    <label for="surname-2">How many hours do you spend behind your studies on a daily basis?</label>
-                    <div class="example" dir="ltr">0    I spend less than 1 hour for homework and studying.
+                <label for="surname-2">How many hours do you spend behind your studies on a daily basis?</label>
+                <div class="example" dir="ltr">0    I spend less than 1 hour for homework and studying.
 1   I spend 1 hour for homework and studying.
 2   I spend 2 hours for homework and studying.
 3   I spend 3 hours for homework and studying.
 4   I spend more than 3 hours for homework and studying.</div>
-                    <input id="study" name="surname" type="text" class="required">
+                <input id="study" name="surname" type="text" class="required">
 
-                    <label for="surname-2">Do you do daily puja?</label>
-                    <div class="example" dir="ltr">0    I do not do daily puja.
+                <label for="surname-2">Do you do daily puja?</label>
+                <div class="example" dir="ltr">0    I do not do daily puja.
 1   I only do mala on a daily basis
 2   I do daily puja, but skip a few steps (dandvats, pradakshina, etc.)
 3   I do the the full puja on a daily basis
 4   I do the full daily puja, I understand what I am doing and I try to concentrate as well.</div>
-                    <input id="puja" name="surname" type="text" class="required">
+                <input id="puja" name="surname" type="text" class="required">
 
-                    <label for="surname-2">Do you do Tilak Chandlo?</label>
-                    <div class="example" dir="ltr">0    I do not do tilak chandlo.
+                <label for="surname-2">Do you do Tilak Chandlo?</label>
+                <div class="example" dir="ltr">0    I do not do tilak chandlo.
 1   I do tilak chandlo on Sunday, weekends or holidays.
 2   I do tilak chandlo every day but smear it off after puja.
 3   I do tilak chandlo daily, but use only chandan.
 4   I do tilak chandlo daily with kumkum.</div>
-                    <input id="tilak" name="surname" type="text" class="required">
+                <input id="tilak" name="surname" type="text" class="required">
 
-                        
-                     <label for="surname-2">Do you help your parents with chores around the house?</label>
-                    <div class="example" dir="ltr">0   I do not help my parents with chores around the house.
+                    
+                 <label for="surname-2">Do you help your parents with chores around the house?</label>
+                <div class="example" dir="ltr">0   I do not help my parents with chores around the house.
 2   I help my parents every now and then when they ask.
 4   I help my parents on a daily basis without them asking.</div>
-                    <input id="helpParents" name="surname" type="text" class="required">
+                <input id="helpParents" name="surname" type="text" class="required">
 
 
 
 
-                     <label for="surname-2">Do you read the Bal Prakash?</label>
-                    <div class="example" dir="ltr">0    I do not receive or do not read the Bal Prakash at all.
+                 <label for="surname-2">Do you read the Bal Prakash?</label>
+                <div class="example" dir="ltr">0    I do not receive or do not read the Bal Prakash at all.
 2   I read parts of the Bal Prakash.
 4   I read the entire publication after it is released.</div>
-                    <input id="balPrakash" name="surname" type="text" class="required">
+                <input id="balPrakash" name="surname" type="text" class="required">
 
 
-                     <label for="surname-2">Do you do Satsang Reading?</label>
-                    <div class="example" dir="ltr">0    I do not do satsang reading.
+                 <label for="surname-2">Do you do Satsang Reading?</label>
+                <div class="example" dir="ltr">0    I do not do satsang reading.
 1   I  do satsang reading a few times a month.
 2   I  do satsang reading a few times a week.
 3   I  do satsang reading daily for at least 15 minutes.</div>
-                    <input id="satsangReading" name="surname" type="text" class="required">
+                <input id="satsangReading" name="surname" type="text" class="required">
 
 
 
-                     <label for="surname-2">Do you do Arti?</label>
-                    <div class="example" dir="ltr">0    I do not do the Arti at all.
+                 <label for="surname-2">Do you do Arti?</label>
+                <div class="example" dir="ltr">0    I do not do the Arti at all.
 1   I do Arti whenever I remember or find time.
 2   I do a short Arti every day.
 3   I do the full Arti every day.
 4   I do the full Arti every day and understand/attempt to understand its meaning.</div>
-                    <input id="arti" name="surname" type="text" class="required">
+                <input id="arti" name="surname" type="text" class="required">
 
 
 
 
 
-                     <label for="surname-2">Do you do Chesta?</label>
-                    <div class="example" dir="ltr">0    I do not do chesta.
+                 <label for="surname-2">Do you do Chesta?</label>
+                <div class="example" dir="ltr">0    I do not do chesta.
 1   I do the short chesta (Podhe Prabhu) whenever I remember
 2   I do the short chesta (Podhe Prabhu) every day.
 3   I do the full chesta every day.
 4   I do the full chesta every day and understand/attempt to understand its meaning.</div>
-                    <input id="chesta" name="surname" type="text" class="required">
+                <input id="chesta" name="surname" type="text" class="required">
 
 
-                     <label for="surname-2">Do you attend weekly Bal Activities?</label>
-                    <div class="example" dir="ltr">0    I do not attend any Bal Activities (even sabha).
+                 <label for="surname-2">Do you attend weekly Bal Activities?</label>
+                <div class="example" dir="ltr">0    I do not attend any Bal Activities (even sabha).
 1   I attend only Bal Sabha a few times per year and major events.
 2   I attend only Bal Sabha at least twice a month and major events.
 3   I attend Bal Sabha every week, but do not attend other weekly activities (Gujarati Class, etc).
 4   I attend ALL weekly Bal Activities.</div>
-                    <input id="balActivities" name="surname" type="text" class="required">
+                <input id="balActivities" name="surname" type="text" class="required">
 
-                    
-                     <label for="surname-2">Do you listen to Bhajans?</label>
-                    <div class="example" dir="ltr">0    I do not listen to bhajans or listen to them at mandir only.
+                
+                 <label for="surname-2">Do you listen to Bhajans?</label>
+                <div class="example" dir="ltr">0    I do not listen to bhajans or listen to them at mandir only.
 1   I  listen to bhajans outside of mandir a few times a month.
 2   I  listen to bhajans outside of mandir a few times a week.
 3   I listen to bhajans at least once a day.</div>
-                    <input id="bhajan" name="surname" type="text" class="required">
+                <input id="bhajan" name="surname" type="text" class="required">
 
-                
+            
 
-                // dropdown
-                     <label for="surname-2">What is your grade average in school?</label>
-                    <div class="example" dir="ltr">0    D or F (lower than 75%)
+            // dropdown
+                 <label for="surname-2">What is your grade average in school?</label>
+                <div class="example" dir="ltr">0    D or F (lower than 75%)
 1   C (75%  - 79%)
 2   B (80% - 84%)
 3   B+ (85% - 89%)
 4   A (90% - 94%)
 5   A+ (95% or higher)</div>
-                    <input id="schoolGrades" name="surname" type="text" class="required">
+                <input id="schoolGrades" name="surname" type="text" class="required">
 
 
-                    <p>(*) Mandatory</p>
-                </fieldset>
+                <p>(*) Mandatory</p>
+
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
 
 
 
 
-              
-             
-                <h3>Finish</h3>
-                <fieldset>
-                    <legend>Terms and Conditions</legend>
-             
-                    <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
-                </fieldset>
-            </form>
+          
+         
+            <h3>Finish</h3>
+            <fieldset>
+                <legend>Terms and Conditions</legend>
+         
+                <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
 
+                <input type="button" name="previous" class="previous action-button" value="Previous" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+        </form>
 
-        </div>
-               <script src="js/app.js"></script>
+            <script src="js/jquery-1.9.1.min.js"></script>
+            <!-- jQuery easing plugin -->
+            <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+          
+
+            <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+        
+
+            <script src="js/bootstrap.min.js"></script>
+
+            <script src="js/app.js"></script>
     </body>
 </html>

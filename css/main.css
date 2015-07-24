@@ -1,14 +1,237 @@
-/*
- * HTML5 Boilerplate
+
+
+/*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+/* html {
+    height: 100%;
+    Image only BG fallback
+    background: url('http://thecodeplayer.com/uploads/media/gs.png');
+    background = gradient + image pattern combo
+    background: 
+        linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), 
+        url('http://thecodeplayer.com/uploads/media/gs.png');
+}
+ */
+body {
+    font-family: montserrat, arial, verdana;
+}
+/*form styles*/
+#msform {
+    width: 80vw;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+    margin-bottom: 50px;
+    
+    /*stacking fieldsets above each other*/
+    position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+/*inputs*/
+#msform input, #msform textarea , #msform select{
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 60%;
+    display:initial;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+/* style all input elements with a required attribute */
+input:required {
+  box-shadow: 4px 4px 20px rgba(200, 0, 0, 0.85);
+}
+
+/* *
+ * style input elements that have a required
+ * attribute and a focus state
+input:required:focus {
+  border: 1px solid red;
+  outline: none;
+}
+ */
+/**
+ * style input elements that have a required
+ * attribute and a hover state
+ */
+input:required:hover {
+  opacity: 1;
+}
+/*buttons*/
+#msform .action-button {
+    width: 100px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+/* Labels  */
+.titles {
+    font-weight: bolder;
+    color: #538753;
+}
+.example{
+    font-size: small;
+    color: #808080;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+#progressbar li {
+    list-style-type: none;
+    color: blue;
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    color: #333;
+    background: white;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+    background: #27AE60;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** HTML5 Boilerplate
  *
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
- */
 
-/* ==========================================================================
+==========================================================================
    Base styles: opinionated defaults
-   ========================================================================== */
+   ==========================================================================
+
+
+
+.actions.clearfix {
+  padding: 20px;
+}
+
 
 html,
 button,
@@ -24,11 +247,9 @@ body {
     line-height: 1.4;
 }
 
-/*
- * Remove text-shadow in selection highlight: h5bp.com/i
+* Remove text-shadow in selection highlight: h5bp.com/i
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
- */
 
 ::-moz-selection {
     background: #b3d4fc;
@@ -40,9 +261,7 @@ body {
     text-shadow: none;
 }
 
-/*
- * A better looking default horizontal rule
- */
+* A better looking default horizontal rule
 
 hr {
     display: block;
@@ -53,17 +272,13 @@ hr {
     padding: 0;
 }
 
-/*
- * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
- */
+* Remove the gap between images and the bottom of their containers: h5bp.com/i/440
 
 img {
     vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
+* Remove default fieldset styles.
 
 fieldset {
     border: 0;
@@ -84,17 +299,15 @@ fieldset {
     font-weight: bold;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
+* Allow only vertical resizing of textareas.
 
 textarea {
     resize: vertical;
 }
 
-/* ==========================================================================
+==========================================================================
    Chrome Frame prompt
-   ========================================================================== */
+   ==========================================================================
 
 .chromeframe {
     margin: 0.2em 0;
@@ -103,9 +316,9 @@ textarea {
     padding: 0.2em 0;
 }
 
-/* ==========================================================================
+==========================================================================
    Author's custom styles
-   ========================================================================== */
+   ==========================================================================
 
 
 
@@ -123,19 +336,17 @@ textarea {
 
 
 
-/* ==========================================================================
+==========================================================================
    Helper classes
-   ========================================================================== */
+   ==========================================================================
 
-/*
- * Image replacement
- */
+* Image replacement
 
 .ir {
     background-color: transparent;
     border: 0;
     overflow: hidden;
-    /* IE 6/7 fallback */
+    IE 6/7 fallback
     *text-indent: -9999px;
 }
 
@@ -146,18 +357,14 @@ textarea {
     height: 150%;
 }
 
-/*
- * Hide from both screenreaders and browsers: h5bp.com/u
- */
+* Hide from both screenreaders and browsers: h5bp.com/u
 
 .hidden {
     display: none !important;
     visibility: hidden;
 }
 
-/*
- * Hide only visually, but have it available for screenreaders: h5bp.com/v
- */
+* Hide only visually, but have it available for screenreaders: h5bp.com/v
 
 .visuallyhidden {
     border: 0;
@@ -170,10 +377,8 @@ textarea {
     width: 1px;
 }
 
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
+* Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
- */
 
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
@@ -185,15 +390,13 @@ textarea {
     width: auto;
 }
 
-/*
- * Hide visually and from screenreaders, but maintain layout
- */
+* Hide visually and from screenreaders, but maintain layout
 
 .invisible {
     visibility: hidden;
 }
 
-/*
+
  * Clearfix: contain floats
  *
  * For modern browsers
@@ -203,53 +406,51 @@ textarea {
  *    that receive the `clearfix` class.
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
- */
+ 
 
 .clearfix:before,
 .clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+    content: " "; 1
+    display: table; 2
 }
 
 .clearfix:after {
     clear: both;
 }
 
-/*
- * For IE 6/7 only
+* For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
- */
 
 .clearfix {
     *zoom: 1;
 }
 
-/* ==========================================================================
+==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
-   ========================================================================== */
+   ==========================================================================
 
 @media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
+    Style adjustments for viewports that meet the condition
 }
 
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
+    Style adjustments for high resolution devices
 }
 
-/* ==========================================================================
+==========================================================================
    Print styles.
    Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
+   ==========================================================================
 
 @media print {
     * {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        color: #000 !important; Black prints faster: h5bp.com/s
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -267,9 +468,7 @@ textarea {
         content: " (" attr(title) ")";
     }
 
-    /*
-     * Don't show links for images, or javascript/internal links
-     */
+    * Don't show links for images, or javascript/internal links
 
     .ir a:after,
     a[href^="javascript:"]:after,
@@ -284,7 +483,7 @@ textarea {
     }
 
     thead {
-        display: table-header-group; /* h5bp.com/t */
+        display: table-header-group; h5bp.com/t
     }
 
     tr,
@@ -312,7 +511,7 @@ textarea {
         page-break-after: avoid;
     }
 }
-/*ss-q-help ss-secondary-textbody{padding:1em 0}
+ss-q-help ss-secondary-textbody{padding:1em 0}
 .ss-top-of-page{overflow-x:hidden}
 .ss-form-container{width:90%;margin:0 auto}
 .ss-form,
