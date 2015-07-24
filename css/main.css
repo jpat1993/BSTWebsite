@@ -16,6 +16,16 @@
         url('http://thecodeplayer.com/uploads/media/gs.png');
 }
  */
+h1{
+    text-align: center;
+}
+
+h4 {
+  text-align: center;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
 body {
     font-family: montserrat, arial, verdana;
 }
@@ -105,6 +115,14 @@ input:required:hover {
     color: #808080;
 }
 
+.left{
+    font-size: small;
+    color: #808080;
+    text-align: left;
+    width:60%;
+    margin:auto;
+}
+
 /*headings*/
 .fs-title {
     font-size: 15px;
@@ -142,7 +160,7 @@ input:required:hover {
     display: block;
     font-size: 10px;
     color: #333;
-    background: white;
+    background: orange;
     border-radius: 3px;
     margin: 0 auto 5px auto;
 }
