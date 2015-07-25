@@ -89,6 +89,19 @@ input:required:focus {
 input:required:hover {
   opacity: 1;
 }
+
+
+label.error {
+    color:red; /* red */
+}
+
+.error {
+    border-color: #cd0a0a !important;
+    background: #fef1ec !important;
+}
+
+
+
 /*buttons*/
 #msform .action-button {
     width: 100px;
