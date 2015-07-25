@@ -1,22 +1,22 @@
 
+
+
+
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
+Parse.initialize("1dlfQyT8N0OrUJXzRWk9gtWz3fXHYNgKnZNOhWyY", "OTs8JFyPYJ3yrm03qc1jgY9NGCFJBXqsxsNCKT8E");
+var DB = "Test";
 
 $(".next").click(function(){
+
     if(animating) return false;
-    
-
-
     
         $("#msform").validate({
             errorPlacement: $.noop,
             ignore: ".ignore"
         }); 
-
-
-
     
 //     $("#msform").validate({
 //   rules: {
@@ -26,18 +26,54 @@ $(".next").click(function(){
 //   }
 // });
 
-    
+// GET VALUES FROM ARRAY OF INPUTS
+        var values = $(this).parent().serializeArray();
+        console.log(values);
+
+        //add parse
+        var User = Parse.Object.extend(DB);
+        var trial = new User();
+
+        // for all the values in form
+        for (var prop in values) {
+          var name = values[prop].name;
+          console.log(name);
+          var value = values[prop].value;
+          console.log(value);
+
+            // add to PARSE
+            trial.set(name, value);
+
+                 trial.save(null, {
+              success: function(trial) {
+                console.log("success");
+              },
+              error: function(trial, error) {
+                // Execute any logic that should take place if the save fails.
+                // error is a Parse.Error with an error code and message.
+                alert('Failed to create new object, with error code: ' + error.message);
+              }
+            });
+
+
+        }
+
+       
+
 
     if($("#msform").valid()){
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
+
         animating = true;
 
 
          // this is the VALUES OF THE INPUTS   
-        console.log($(this).parent());
         var values = $(this).parent().serializeArray();
         console.log(values);
+
+
+
 
 
             
