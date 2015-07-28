@@ -34,9 +34,9 @@
 
             <!-- progressbar -->
             <ul id="progressbar">
-                <li class="hidden">Login</li>
-                <li class="hidden">Search</li>
-                <li >Personal Information</li>
+                <li class="active">Login</li>
+                <li>Search</li>
+                <li>Personal Information</li>
                 <li>Parental Information</li>
                 <li>Sanchalak Information</li>
                 <li>Academic Information</li>
@@ -131,6 +131,7 @@
                                         <option value="Miami">Miami</option>
                                         <option value="Gainesville ">Gainesville </option>
                                         <option value="Melbourne">Melbourne</option>
+
                                     </select>
                             </div>
                  <div class="form-group">
@@ -281,7 +282,7 @@
                     <label class = "titles">Grade *</label>
                                  <div class="example" dir="ltr">Grade you will be in during the 2015-2016 school year</div>
                                     <select class="input required" name = "grade">
-                                        <option disabled> -- Select your Grade -- </option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                         <option selected>Select an Option</option>
                                        <option value="7th Grade">7th Grade</option>
                                        <option value="8th Grade">8th Grade</option> 
@@ -293,7 +294,7 @@
                     <label class = "titles">Math *</label>
                                  <div class="example" dir="ltr">Last years grade in the subject listed above</div>
                                     <select class="input required" name = "math">
-                                        <option disabled> -- Select your Grade -- </option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                         <option selected>Select an Option</option>
                                        <option value="A+">A+</option> 
                                        <option value="A">A</option> 
@@ -315,8 +316,7 @@
                     <label class = "titles">English/Language *</label>
                                  <div class="example" dir="ltr">Last years grade in the subject listed above</div>
                                     <select class="input required" name = "english">
-                                        <option disabled> -- Select your Grade -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                        <option value="A+">A+</option> 
                                        <option value="A">A</option> 
                                        <option value="A-">A-</option> 
@@ -337,8 +337,7 @@
                     <label class = "titles">Foreign Language *</label>
                                  <div class="example" dir="ltr">Last years grade in the subject listed above</div>
                                     <select class="input required" name = "foreign">
-                                        <option disabled> -- Select your Grade -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                        <option value="A+">A+</option> 
                                        <option value="A">A</option> 
                                        <option value="A-">A-</option> 
@@ -359,8 +358,7 @@
                     <label class = "titles">Science *</label>
                                  <div class="example" dir="ltr">Last years grade in the subject listed above</div>
                                     <select class="input required" name = "science">
-                                        <option disabled> -- Select your Grade -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                        <option value="A+">A+</option> 
                                        <option value="A">A</option> 
                                        <option value="A-">A-</option> 
@@ -381,8 +379,7 @@
                     <label class = "titles">History/Social Studies *</label>
                                  <div class="example" dir="ltr">Last years grade in the subject listed above</div>
                                     <select class="input required" name = "history">
-                                        <option disabled> -- Select your Grade -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                        <option value="A+">A+</option> 
                                        <option value="A">A</option> 
                                        <option value="A-">A-</option> 
@@ -414,8 +411,7 @@
                     <label class = "titles">Satsang Vihar - 1 *</label>
                                  <div class="example" dir="ltr">Please select the score you recieved</div>
                                     <select class="input required" name = "vihar1">
-                                        <option disabled> -- Select your Grade -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                        <option value="Destinction">Destinction</option>
                                        <option value="1st Class">1st Class</option> 
                                        <option value="2nd Class">2nd Class</option> 
@@ -429,8 +425,7 @@
                     <label class = "titles">Satsang Vihar - 2 *</label>
                                  <div class="example" dir="ltr">Please select the score you recieved</div>
                                     <select class="input required" name = "vihar2">
-                                        <option disabled> -- Select your Grade -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- Select your Grade -- </option>
                                        <option value="Destinction">Destinction</option>
                                        <option value="1st Class">1st Class</option> 
                                        <option value="2nd Class">2nd Class</option> 
@@ -488,8 +483,7 @@
                                                 2   I watch less than 5 hours of shows, sports or news per week.<br>
                                                 3   I don't watch TV.</div>
                                     <select class="input required" name = "tv">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -505,8 +499,7 @@
                                                 2   I watch a movie or documentary a few times a month <br>
                                                 3   I watch only documentaries or do not watch movies.</div>
                                     <select class="input required" name = "movie">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -521,8 +514,7 @@
                 2   I use the internet for chatting, surfing the web or checking Facebook, etc and for satsang/school   purposes.<br>
                 4   I use the internet for Satsang (kids.baps.org for example) or school purposes only.</div>
                                     <select class="input required" name = "internet">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="2">2</option>
                                         <option value="4">4</option> 
@@ -539,8 +531,7 @@
                                                 3   I bow down (not panchang pranam) to my parents daily. <br>
                                                 4   I do panchang pranam to my parents daily.</div>
                                     <select class="input required" name = "bow">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -556,8 +547,7 @@
                                                 2   I do not use profanity (in any language) at mandir, but use it at home or school. <br>
                                                 4   I do not use profanity (in any language) at mandir, home, and school (anywhere).</div>
                                     <select class="input required" name = "curse">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="2">2</option>
                                         <option value="4">4</option> 
@@ -572,8 +562,7 @@
                                                 2   I offer mentally food to Maharaj and Swami whenever I eat, but don't say shloka. <br>
                                                 3   I say the shloka before I eat.</div>
                                     <select class="input required" name = "shloka">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -589,8 +578,7 @@
 3   I do not eat cooked meat or products that contain eggs or gelatin, but do eat food with onions or garlic. <br>
 5   I am a complete vegetarian (i.e., I do not eat meat, eggs, gelatin, onion or garlic).</div>
                                     <select class="input required" name = "vege">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="3">3</option>
@@ -607,8 +595,7 @@
 2   I eat out, but I do not eat grilled or cooked food and I make sure my food does not contain eggs, onion or garlic. <br>
 3   I do not eat out.</div>
                                     <select class="input required" name = "eatout">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -624,8 +611,7 @@
 2   I do all the Ekadashi and eat farari foods. <br>
 3   I do all the Ekadashi and eat farari foods.  I also do the 5 main nirjala's.</div>
                                     <select class="input required" name = "ekadashi">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -643,8 +629,7 @@
 3   I spend 3 hours for homework and studying. <br>
 4   I spend more than 3 hours for homework and studying.</div>
                                     <select class="input required" name = "study">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -663,8 +648,7 @@
 3   I do the the full puja on a daily basis <br>
 4   I do the full daily puja, I understand what I am doing and I try to concentrate as well.</div>
                                     <select class="input required" name = "puja">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -682,8 +666,7 @@
 3   I do tilak chandlo daily, but use only chandan. <br>
 4   I do tilak chandlo daily with kumkum.</div>
                                     <select class="input required" name = "tilak">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option> 
                                         <option value="2">2</option>
@@ -699,8 +682,7 @@
 2   I help my parents every now and then when they ask. <br>
 4   I help my parents on a daily basis without them asking.</div>
                                     <select class="input required" name = "helpParents">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="2">2</option>
                                         <option value="4">4</option> 
@@ -715,8 +697,7 @@
 2   I read parts of the Bal Prakash. <br>
 4   I read the entire publication after it is released.</div>
                                     <select class="input required" name = "balPrakash">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="2">2</option>
                                         <option value="4">4</option> 
@@ -731,8 +712,7 @@
 2   I  do satsang reading a few times a week. <br>
 3   I  do satsang reading daily for at least 15 minutes.</div>
                                     <select class="input required" name = "satsangReading">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -750,8 +730,7 @@
 3   I do the full Arti every day. <br>
 4   I do the full Arti every day and understand/attempt to understand its meaning.</div>
                                     <select class="input required" name = "arti">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -769,8 +748,7 @@
 3   I do the full chesta every day. <br>
 4   I do the full chesta every day and understand/attempt to understand its meaning.</div>
                                     <select class="input required" name = "chesta">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -787,8 +765,7 @@
 3   I attend Bal Sabha every week, but do not attend other weekly activities (Gujarati Class, etc). <br>
 4   I attend ALL weekly Bal Activities.</div>
                                     <select class="input required" name = "balActivities">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -805,8 +782,7 @@
 2   I  listen to bhajans outside of mandir a few times a week. <br>
 3   I listen to bhajans at least once a day.</div>
                                     <select class="input required" name = "bhajan">
-                                        <option disabled> -- -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- -- </option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -819,8 +795,7 @@
                     <label class = "titles">What is your grade average in school?</label>
                                  <div class="example" dir="ltr"></div>
                                     <select class="input required" name = "schoolGrades">
-                                        <option disabled> -- Select your Average -- </option>
-                                        <option selected>Select an Option</option>
+                                        <option disabled selected> -- Select your Average -- </option>
                                         <option value="A+">A+ (95% or higher)</option>
                                         <option value="A">A (90% - 94%)</option>
                                         <option value="B+">B+ (85% - 89%)</option>
@@ -836,8 +811,9 @@
 
             <fieldset>
                 <h2 class="fs-title">Jay Swaminarayan</h2>
-                <h3 class="fs-subtitle"> Thank You for your BST Application.</h3>
+                <h3 class="fs-subtitle">Thank You for your BST Application, it has been submitted.</h3>
             </fieldset>
+
 
         </form>
 
