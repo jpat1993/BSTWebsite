@@ -5,18 +5,254 @@
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
+var inputs;
+var obj = {id: "unchanged", submitted: false, first: true};
 
 Parse.initialize("1dlfQyT8N0OrUJXzRWk9gtWz3fXHYNgKnZNOhWyY", "OTs8JFyPYJ3yrm03qc1jgY9NGCFJBXqsxsNCKT8E");
 var DB = "Test";
 
+
+$(".new").click(function(){
+
+    // console.log($(this).parent());
+    // console.log($("#start"));
+
+
+    animating = true;
+
+    current_fs = $(this).parent();
+    next_fs = $("#start");
+    next_fs.show(); 
+
+
+    current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 50)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'transform': 'scale('+scale+')'});
+                next_fs.css({'left': left, 'opacity': opacity});
+            }, 
+            duration: 800, 
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            }, 
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+
+});
+
+function gotoStart(){
+    animating = true;
+
+    current_fs =  $("#existing");
+    console.log(current_fs );
+    next_fs = $("#start");
+    next_fs.show(); 
+
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+
+    current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 50)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'transform': 'scale('+scale+')'});
+                next_fs.css({'left': left, 'opacity': opacity});
+            }, 
+            duration: 800, 
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            }, 
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+}
+
+$(".existing").click(function(){
+
+    // console.log($(this).parent());
+    // console.log($("#start"));
+
+
+    animating = true;
+
+    current_fs = $(this).parent();
+    next_fs = $("#existing");
+    next_fs.show(); 
+
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+    current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 50)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'transform': 'scale('+scale+')'});
+                next_fs.css({'left': left, 'opacity': opacity});
+            }, 
+            duration: 800, 
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            }, 
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+
+});
+
+$(".search").click(function(){
+    
+
+    var input = $(this).parent().serializeArray();
+    var email = input[0].value;
+    console.log(email);
+
+    // var div = document.createElement("P");
+    // div.style.width = "50vw";
+    // div.style.height = "60vh";
+    // div.style.background = "red";
+    // div.style.margin = "50px auto";
+
+    // document.body.appendChild(div);
+
+    var div = document.getElementById("searchResults");
+
+    var searcher = Parse.Object.extend(DB);
+    var query = new Parse.Query(searcher);
+    query.startsWith("email", email);
+    event.preventDefault();
+    query.find({
+        success: function(results) {
+        // alert("Successfully retrieved " + results.length + " scores.");
+            // Do something with the returned Parse.Object values
+            for (var i = 0; i < results.length; i++) {
+              var object = results[i];
+              // alert(object.id + ' - ' + object.get('email') + "name" : object.get('name'));
+
+              // div.appendChild(document.
+                var t = document.createTextNode(object.id + ' - ' + object.get('email') + "\n name :" + object.get('name') + "\n");
+
+              var btn = document.createElement("button");
+
+              btn.setAttribute("id", object.id);
+              btn.setAttribute('onclick','check(id);');
+                btn.setAttribute('class', 'btn btn-default');
+                btn.setAttribute("style","text-align: center", "margin = '50px auto'");
+                
+                btn.appendChild(t);
+
+                div.appendChild(btn);
+            }
+        },
+        error: function(error) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+    });
+
+
+});
+
+
+function check(ObjectID) {
+
+    obj.id = ObjectID;
+
+    var tester = Parse.Object.extend(DB);
+    var query = new Parse.Query(tester);
+    var pass = prompt("Please enter your Password");
+    event.preventDefault();
+    query.get(ObjectID, {
+        success: function(details) {
+                console.log(details)
+            if(pass === details.get("password")) {
+                console.log(ObjectID);
+                obj.submitted = true;
+                gotoStart();
+                loadDetails(details.id,next_fs);
+            } else {
+                alert("Your Password is Incorrect!")
+            }
+        },
+        error: function(object, error) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+        
+    });
+    console.log(obj.id);
+};
+
+
+
+function loadDetails(ObjectID,field) {
+   
+    //add parse
+    var tester = Parse.Object.extend(DB);
+    var query = new Parse.Query(tester);
+
+    var values = field.serializeArray();
+    console.log(values);
+
+    console.log(obj.id);
+
+    event.preventDefault();
+
+    query.get(ObjectID, {
+        success: function(details) {
+            for (var prop in values) {
+                  var lookup = values[prop].name;
+
+                  $("#"+lookup).val(details.get(lookup));
+
+                  console.log(name);
+                  console.log(details.get(lookup));
+                  console.log("#"+lookup);
+                  console.log();
+
+                  var value = values[prop].value;
+                  console.log(value);
+                  console.log(ObjectID);
+              };
+            
+            // if(pass === details.get("password")) {
+            //     loadDetails(details.get("id"));
+            // } else {
+            //     alert("Your Password is Incorrect!")
+            // }
+        },
+        error: function(object, error) {
+            alert("Error: " + error.code + " " + error.message);
+        }
+        
+    });
+
+
+// console.log($('input[name="name"]').val('jay'));
+};
+
+
 $(".next").click(function(){
 
-    if(animating) return false;
+    // if(animating) return false;
     
-        $("#msform").validate({
-            errorPlacement: $.noop,
-            ignore: ".ignore"
-        }); 
+        
     
 //     $("#msform").validate({
 //   rules: {
@@ -26,88 +262,227 @@ $(".next").click(function(){
 //   }
 // });
 
-// GET VALUES FROM ARRAY OF INPUTS
-        var values = $(this).parent().serializeArray();
-        console.log(values);
+//     current_fs = $(this).parent();
+// console.log(current_fs);
 
-        //add parse
-        var User = Parse.Object.extend(DB);
-        var trial = new User();
-
-        // for all the values in form
-        for (var prop in values) {
-          var name = values[prop].name;
-          console.log(name);
-          var value = values[prop].value;
-          console.log(value);
-
-            // add to PARSE
-            trial.set(name, value);
-
-                 trial.save(null, {
-              success: function(trial) {
-                console.log("success");
-              },
-              error: function(trial, error) {
-                // Execute any logic that should take place if the save fails.
-                // error is a Parse.Error with an error code and message.
-                alert('Failed to create new object, with error code: ' + error.message);
-              }
-            });
-
-
-        }
+    $("#msform").validate({
+            errorPlacement: $.noop,
+            ignore: ".ignore"
+        }); 
 
        
+    // console.log($(this).parent());
+    // console.log($(this).parent().valid());
+    // console.log($(this).valid());
 
+    $("#msform").valid();
+        // GET VALUES FROM ARRAY OF INPUTS
+        var test = $(this).parent().serializeArray();
+        console.log(test);
+        var check = checkifValid(test);
 
-    if($("#msform").valid()){
+    if(check){
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
 
         animating = true;
 
-
-         // this is the VALUES OF THE INPUTS   
+        // get values for next page
         var values = $(this).parent().serializeArray();
-        console.log(values);
 
 
+        // GET VALUES FROM ARRAY OF INPUTS
+        // var values = $(this).parent().serializeArray();
+        // console.log(values);
 
 
+        // var submitted = true;
+        if(obj.submitted) {
+            console.log(obj.id);
+            // var email = loadDetails(ObjectID);
+            // console.log(email);
+            // var id = getObjectID(values);
+            // console.log(id);
 
-            
-            //activate next step on progressbar using the index of next_fs
-            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-            
-            //show the next fieldset
-            next_fs.show(); 
-            //hide the current fieldset with style
-            current_fs.animate({opacity: 0}, {
-                step: function(now, mx) {
-                    //as the opacity of current_fs reduces to 0 - stored in "now"
-                    //1. scale current_fs down to 80%
-                    scale = 1 - (1 - now) * 0.2;
-                    //2. bring next_fs from the right(50%)
-                    left = (now * 50)+"%";
-                    //3. increase opacity of next_fs to 1 as it moves in
-                    opacity = 1 - now;
-                    current_fs.css({'transform': 'scale('+scale+')'});
-                    next_fs.css({'left': left, 'opacity': opacity});
-                }, 
-                duration: 800, 
-                complete: function(){
-                    current_fs.hide();
-                    animating = false;
-                }, 
-                //this comes from the custom easing plugin
-                easing: 'easeInOutBack'
+            //add parse
+            var tester = Parse.Object.extend(DB);
+            var query = new Parse.Query(tester);
+            event.preventDefault();
+            query.get(obj.id, {
+                success: function(details) {
+                    for (var prop in values) {
+                      var name = values[prop].name;
+                      console.log(name);
+                      var value = values[prop].value;
+                      console.log(value);
+
+                        // add to PARSE
+                        details.set(name, value);
+
+                             details.save(null, {
+                              success: function(details) {
+                                console.log("success");
+                              },
+                              error: function(details, error) {
+                                // Execute any logic that should take place if the save fails.
+                                // error is a Parse.Error with an error code and message.
+                                alert('Failed to create new object, with error code: ' + error.message);
+                              }
+                            });
+                    };
+                },
+                error: function(object, error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }
+        
             });
+            
+            shiftPage(current_fs,next_fs)   ;
+            loadDetails(obj.id,next_fs);
+
+        } else {
+            //add parse
+            
+            if(obj.first === true) {
+                var User = Parse.Object.extend(DB);
+                var trial = new User();
+                trial.set("submitted",true);
+                trial.save(null, {
+                  success: function(trial) {
+                    // Execute any logic that should take place after the object is saved.
+                    alert('New object created with objectId: ' + trial.id);
+                    var test = trial.id;
+                    obj.id = test;
+                  },
+                  error: function(trial, error) {
+                    // Execute any logic that should take place if the save fails.
+                    // error is a Parse.Error with an error code and message.
+                    alert('Failed to create new object, with error code: ' + error.message);
+                  }
+                });
+
+
+                        // for all the values in form
+                    for (var prop in values) {
+                      var name = values[prop].name;
+                      console.log(name);
+                      var value = values[prop].value;
+                      console.log(value);
+
+                        // add to PARSE
+                        trial.set(name, value);
+
+
+                             trial.save(null, {
+                              success: function(trial) {
+                                console.log("success");
+                              },
+                              error: function(trial, error) {
+                                // Execute any logic that should take place if the save fails.
+                                // error is a Parse.Error with an error code and message.
+                                alert('Failed to create new object, with error code: ' + error.message);
+                              }
+                        });
+
+
+                    }
+
+                console.log(test);
+            } else {
+                var trial = Parse.Object.extend(DB);
+                var query = new Parse.Query(trial);
+                query.get(obj.id, {
+                  success: function(trial) {
+                        // for all the values in form
+                    for (var prop in values) {
+                      var name = values[prop].name;
+                      console.log(name);
+                      var value = values[prop].value;
+                      console.log(value);
+
+                        // add to PARSE
+                        trial.set(name, value);
+
+
+                             trial.save(null, {
+                              success: function(trial) {
+                                console.log("success");
+                              },
+                              error: function(trial, error) {
+                                // Execute any logic that should take place if the save fails.
+                                // error is a Parse.Error with an error code and message.
+                                alert('Failed to create new object, with error code: ' + error.message);
+                              }
+                        });
+
+
+                    }
+                  },
+                  error: function(User, error) {
+                    // The object was not retrieved successfully.
+                    // error is a Parse.Error with an error code and message.
+                    alert('Failed to get old object, with error code: ' + error.message);
+                  }
+                });
+
+            }
+            
+
+            
+
+            obj.first = false;
+            shiftPage(current_fs,next_fs);
+            
+        }
+
+
+        
     }
     
     
    
 });
+
+
+function shiftPage(current_fs, next_fs) {
+    //activate next step on progressbar using the index of next_fs
+        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        
+        //show the next fieldset
+        next_fs.show(); 
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 50)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'transform': 'scale('+scale+')'});
+                next_fs.css({'left': left, 'opacity': opacity});
+            }, 
+            duration: 800, 
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            }, 
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+}
+
+function checkifValid(values) {
+    for (var prop in values) {
+        var value = values[prop].value;
+        if(value === "") {
+           return false;
+        }
+    }
+    return true;
+}
+
 
 $(".previous").click(function(){
     current_fs = $(this).parent();
@@ -141,7 +516,11 @@ $(".previous").click(function(){
 });
 
 $(".submit").click(function(){
-    return false;
+
+    current_fs = $(this).parent();
+    next_fs = $("#final");
+    shiftPage(current_fs,next_fs);
+
 })
 
 

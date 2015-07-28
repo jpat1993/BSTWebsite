@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 7]>             <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
@@ -12,9 +12,9 @@
 <!--         <link rel="stylesheet" href="css/normalize.css">
          -->        
          <link rel="stylesheet" href="css/main.css">
-         <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 <!--         <link rel="stylesheet" href="css/jquery.steps.css">
- --><!--         <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+ -->
+ <link href="css/bootstrap.min.css" rel="stylesheet">
 <!--         // <script src="js/modernizr-2.6.2.min.js"></script>
 
 // <script src="js/jquery.cookie-1.3.1.js"></script>
@@ -33,7 +33,9 @@
 
             <!-- progressbar -->
             <ul id="progressbar">
-                <li class="active">Personal Information</li>
+                <li class="active">Login</li>
+                <li>Search</li>
+                <li>Personal Information</li>
                 <li>Parental Information</li>
                 <li>Sanchalak Information</li>
                 <li>Academic Information</li>
@@ -46,6 +48,38 @@
             </ul>
 
 
+
+            <fieldset>
+
+
+                <h2 class="fs-title">Login</h2>
+                <h3 class="fs-subtitle">Select New User or Existing User</h3>
+
+                <input type="button" name="new" class="new" value="New User" />
+                <input type="button" name="existing" class="existing" value="Existing User" />
+   
+            </fieldset>
+
+            
+            <fieldset id= "existing">
+
+
+                <h2 class="fs-title">Enter Email</h2>
+                <h3 class="fs-subtitle">Search Email and enter Password</h3>
+
+                <div class="form-group">
+                                 <label class = "titles">Email</label>
+                                 <div class="example" dir="ltr">Ex: bst@gmail.com</div>
+                                 <input name="old" type="email">
+
+                            </div>
+
+                <input type="button" name="search" class="search" value="Search" />
+                <div  style="text-align: center;" class ="results" id="searchResults"></div>
+  
+            </fieldset>
+
+
             
             <fieldset id="start">
 
@@ -55,18 +89,18 @@
                 <div class="form-group">
                                  <label class = "titles">Full name *</label>
                                  <div class="example" dir="ltr">Ex: Akshar R Patel</div>
-                                 <input name="name" type="text" class="required">
+                                 <input id = "name" name="name" type="text" class="required">
                 </div>
                 
                 <div class="form-group">
                                  <label class = "titles">Date of Birth *</label>
                                  <div class="example" dir="ltr">Ex: 01/01/2000</div>
-                                 <input name="birthday" type="date" class="required">
+                                 <input id = "birthday" name="birthday" type="date" class="required">
                             </div>
                 <div class="form-group">
                                  <label class = "titles">Center *</label>
                                  <div class="example"></div>
-                                    <select class="input required" name = "center">
+                                    <select id = "center" name = "center" class="required" >
                                        <option disabled selected> -- Select a Center -- </option>
                                        <option value="Albany, GA">Albany, GA</option>
                                        <option value="Atlanta">Atlanta</option> 
@@ -89,53 +123,54 @@
                  <div class="form-group">
                                  <label class = "titles">Address *</label>
                                  <div class="example" dir="ltr">Ex: 100 Main St</div>
-                                 <input name="address" type="text" class="required">
+                                 <input id = "address" name="address" type="text" class="required">
                             </div>
                 <div class="form-group">
                                  <label class = "titles">City *</label>
                                  <div class="example" dir="ltr">Ex: Atlanta</div>
-                                 <input name="city" type="text" class="form-control required">
+                                 <input id = "city" name="city" type="text" class="form-control required">
                             </div>
                 <div class="form-group">
                                  <label class = "titles">State *</label>
                                  <div class="example" dir="ltr">Ex: GA</div>
-                                 <input name="state" type="text" class="form-control required">
+                                 <input id = "state" name="state" type="text" class="form-control required">
                             </div>
                         
                 <div class="form-group">
                                  <label class = "titles">Zip Code *</label>
                                  <div class="example" dir="ltr">Ex: 30332</div>
-                                 <input name="zip" type="text" class="form-control required">
+                                 <input id = "zip"name="zip" type="text" class="form-control required">
                             </div>
                 <div class="form-group">
                                  <label class = "titles">Home Phone *</label>
                                  <div class="example" dir="ltr">Ex: 404-999-1111</div>
-                                 <input name="homephone" type="tel" class="form-control required">
+                                 <input id = "homephone" name="homephone" type="tel" class="form-control required">
                             </div>
                 <div class="form-group">
                                  <label class = "titles">Cell Phone *</label>
                                  <div class="example" dir="ltr">Ex: 404-999-1111</div>
-                                 <input name="cell" type="tel" class="form-control required">
+                                 <input id = "cell" name="cell" type="tel" class="form-control required">
                             </div>
                 <div class="form-group">
                                  <label class = "titles">Email *</label>
                                  <div class="example" dir="ltr">Ex: bst@gmail.com</div>
-                                 <input name="email" type="email" class="form-control required">
+                                 <input id = "email" name="email" type="email" class="form-control required">
                             </div>
                  <div class="form-group">
                                  <label class = "titles">Password *</label>
                                  <div class="example"></div>
-                                 <input name="password" name = "password" type="text" class="form-control required">
+                                 <input id = "password" type="password" name="password" type="text" class="form-control required">
                             </div>
                 <div class="form-group">
                                  <label class = "titles">Confirm Password *</label>
                                  <div class="example"></div>
-                                 <input name="confirm" name = "confirm" type="text" class="form-control required">
+                                 <input id = "confirm" type="password" name="confirm" type="text" class="form-control required">
                             </div>
 
                 
                 <p>(*) Mandatory</p>
-                
+
+                <!-- <input type="button" name="previous" class="previous action-button" value="Previous" />                 -->
                 <input type="button" name="next" class="next action-button" value="Next" />
 
             </fieldset>
@@ -151,39 +186,39 @@
                 <div class="form-group">
                     <label class = "titles">Father's Full Name *</label>
                     <div class="example" dir="ltr">Haribhai Patel</div>
-                    <input name="father" name="name" type="text" class="required">
+                    <input id="father" name="father" type="text" class="required">
 
                 </div>
                 
                 <div class="form-group">
                      <label class = "titles">Father's Mobile Number *</label>
                      <div class="example" dir="ltr">Ex: 404-999-1111</div>
-                     <input name="fatherPhone" type="tel" class="required">
+                     <input id="fatherPhone" name="fatherPhone" type="tel" class="required">
                 </div>
                 
                  <div class="form-group">
                     <label class = "titles">Father's Email *</label>
                     <div class="example" dir="ltr">father@gmail.com</div>
-                    <input name="fatherEmail" name="email" type="text" class="required">
+                    <input id="fatherEmail" name="fatherEmail" type="text" class="required">
                 </div>
 
                  <div class="form-group">
                     <label class = "titles">Mother's Full Name *</label>
                     <div class="example" dir="ltr">Shilpaben Patel</div>
-                    <input name="mother" name="name" type="text" class="required">
+                    <input id="mother" name="mother" type="text" class="required">
 
                 </div>
                 
                 <div class="form-group">
                      <label class = "titles">Mother's Mobile Number *</label>
                      <div class="example" dir="ltr">Ex: 404-999-1111</div>
-                     <input name="motherPhone" type="tel" class="required">
+                     <input id="motherPhone" name="motherPhone" type="tel" class="required">
                 </div>
                 
                  <div class="form-group">
                     <label class = "titles">Mother's Email *</label>
-                    <div class="example" dir="ltr">father@gmail.com</div>
-                    <input name="motherEmail" name="email" type="text" class="required">
+                    <div class="example" dir="ltr">mother@gmail.com</div>
+                    <input id="motherEmail" name="motherEmail" type="text" class="required">
                 </div>
                 
                 <p>(*) Mandatory</p>
@@ -201,20 +236,20 @@
                 <div class="form-group">
                     <label class = "titles">Main Sanchalak's Full Name *</label>
                     <div class="example" dir="ltr">Haribhai Patel</div>
-                    <input name="sanchalak" name="name" type="text" class="required">
+                    <input id="sanchalak" name="sanchalak" type="text" class="required">
 
                 </div>
                 
                 <div class="form-group">
                      <label class = "titles">Main Sanchalak's Mobile Number *</label>
                      <div class="example" dir="ltr">Ex: 404-999-1111</div>
-                     <input name="sanchalakPhone" type="tel" class="required">
+                     <input id="sanchalakPhone" name="sanchalakPhone" type="tel" class="required">
                 </div>
                 
                  <div class="form-group">
                     <label class = "titles">Main Sanchalak's Email *</label>
                     <div class="example" dir="ltr">sanchalak@gmail.com<</div>
-                    <input name="sanchalakEmail" name="email" type="text" class="required">
+                    <input id="sanchalakEmail" name="sanchalakEmail" type="text" class="required">
                 </div>
 
                 
@@ -397,19 +432,19 @@
                 <div class="form-group">
                     <label class = "titles">What do you expect to learn from Bal Sevak Training? *</label>
                     <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
-                    <textarea name="essay1" class="form-control" rows="5"></textarea>
+                    <textarea id="essay1" name="essay1" class="form-control" rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label class = "titles">Tell us something about yourself that we may not know by reading your application (can include honors, awards and extracurricular activities). *</label>
                     <div class="example" dir="ltr">Please answer in 3-5 sentences</div>
-                    <textarea name="essay2" class="form-control" rows="5"></textarea>
+                    <textarea id="essay2" name="essay2" class="form-control" rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label class = "titles">Explain who Swamibapa is to you in your life (text book answers such as “He is Akshar” or “He is the Guru that takes me out of darkness and into the light” will not be accepted). *</label>
                     <div class="example" dir="ltr">Please answer in 1-3 sentences</div>
-                    <textarea name="essay3" class="form-control" rows="5"></textarea>
+                    <textarea id="essay3" name="essay3" class="form-control" rows="5"></textarea>
                 </div>
 
                 
@@ -760,12 +795,20 @@
 
             <fieldset>
                 <h2 class="fs-title">Jay Swaminarayan</h2>
-                <h3 class="fs-subtitle">Please Confirm and Submit your BST Application.</h3>
-
-                <input type="button" name="previous" class="previous action-button" value="Previous" />
-                <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                <h3 class="fs-subtitle"> Your BST Application has been submitted.</h3>
             </fieldset>
+<!-- 
+            <fieldset id = "final">
+                <h2 class="fs-title">Jay Swaminarayan</h2>
+                <h3 class="fs-subtitle">Your BST application is now complete!</h3>
+
+            </fieldset> -->
+
         </form>
+
+
+            <script src="//www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+
 
             <script src="js/jquery-1.9.1.min.js"></script>
             <!-- jQuery easing plugin -->

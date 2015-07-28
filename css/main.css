@@ -29,6 +29,21 @@ h4 {
 body {
     font-family: montserrat, arial, verdana;
 }
+
+input[type=text] 
+{height: 60px;}
+
+/* search results box */
+div#searchResults {
+  width: 30vw;
+  margin: auto;
+}
+
+.btn {
+    margin: 2px auto;
+}
+
+
 /*form styles*/
 #msform {
     width: 80vw;
