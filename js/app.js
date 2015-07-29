@@ -396,7 +396,6 @@ $(".save").click(function(){
         // GET VALUES FROM ARRAY OF INPUTS
         var test = $(this).parent().serializeArray();
         console.log(test);
-
         var check = checkifValid(test);
 
     if(check){
@@ -405,8 +404,12 @@ $(".save").click(function(){
         obj.current = next_fs;
             console.log(obj.current);
 
+<<<<<<< HEAD
         var test2 = next_fs.serializeArray();
         console.log(test2);
+=======
+        animating = true;
+>>>>>>> origin/master
 
         // get values for next page
         var values = $(this).parent().serializeArray();
@@ -471,7 +474,7 @@ $(".save").click(function(){
                 trial.save(null, {
                   success: function(trial) {
                     // Execute any logic that should take place after the object is saved.
-                    // alert('New object created with objectId: ' + trial.id);
+                    alert('New object created with objectId: ' + trial.id);
                     var test = trial.id;
                     obj.id = test;
                   },
@@ -605,20 +608,10 @@ function shiftPage(current_fs, next_fs) {
 }
 
 function checkifValid(values) {
-    var pass;
     for (var prop in values) {
         var value = values[prop].value;
-        if(value === "" || value === "Select an Option") {
+        if(value === "") {
            return false;
-        }
-        if(values[prop].name === "password") {
-            pass = values[prop].value;
-        }
-        if(values[prop].name === "confirm") {
-            if(pass !== values[prop].value){
-                alert("The Passwords do NOT match!");
-                return false;
-            }
         }
     }
     return true;
