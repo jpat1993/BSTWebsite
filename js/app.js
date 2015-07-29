@@ -6,10 +6,63 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 var inputs;
-var obj = {id: "unchanged", submitted: false, first: true};
+var obj = {id: "unchanged", submitted: false, first: true, current: "#login"};
+
+var fieldsets = ["#login", "#existingfs1", "#startfs1", "#parentfs1", "#sanchalakfs1", "#academicfs1", "#satsangfs1", "#essayfs1", "#niyamfs1", "#finish1"]
 
 Parse.initialize("1dlfQyT8N0OrUJXzRWk9gtWz3fXHYNgKnZNOhWyY", "OTs8JFyPYJ3yrm03qc1jgY9NGCFJBXqsxsNCKT8E");
 var DB = "Test";
+
+function headerClick(id){   
+
+    console.log(("#"+ id+"1"));
+    console.log($("#"+ id+"1").index());
+
+    // current_fs = $(this).prev();
+    // var test= $(this).next();
+    // var test2= $(this).siblings();
+    // var test3= $(this).parent().parent().children();
+    // console.log(test);
+    // console.log(test2);
+    // console.log(test3);
+
+
+        console.log(current_fs);
+        console.log(current_fs.index());
+        console.log($("fieldset").index(current_fs));
+
+    console.log($("fieldset").index(current_fs));
+    console.log(current_fs);
+    console.log($(obj.current));
+
+    current_fs = obj.current;
+    next_fs = $("#"+ id+"1");
+
+    // $("#progressbar li").eq($("fieldset").index(current_fs).addClass("active"));
+
+    $("#msform").validate({
+            errorPlacement: $.noop,
+            ignore: ".ignore, :hidden"
+        }); 
+
+    console.log($("#msform").valid());
+        // GET VALUES FROM ARRAY OF INPUTS
+        var test = current_fs.serializeArray();
+        console.log(test);
+
+        var check = checkifValid(test);
+
+    if(check) {
+        shiftPage(current_fs, next_fs);
+        if(obj.submitted) {
+            getInfo(obj.id,next_fs);
+        }
+    } else {
+        alert("Please Fill out all the Required Information");
+    }
+
+};
+
 
 
 $(".new").click(function(){
@@ -21,8 +74,14 @@ $(".new").click(function(){
     animating = true;
 
     current_fs = $(this).parent();
-    next_fs = $("#start");
+    console.log(obj.current);
+ 
+
+
+    next_fs = $("#startfs1");
     next_fs.show(); 
+    obj.current = next_fs;
+        console.log(obj.current);
 
 
     current_fs.animate({opacity: 0}, {
@@ -48,38 +107,7 @@ $(".new").click(function(){
 
 });
 
-function gotoStart(){
-    animating = true;
 
-    current_fs =  $("#existing");
-    console.log(current_fs );
-    next_fs = $("#start");
-    next_fs.show(); 
-
-    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-
-    current_fs.animate({opacity: 0}, {
-            step: function(now, mx) {
-                //as the opacity of current_fs reduces to 0 - stored in "now"
-                //1. scale current_fs down to 80%
-                scale = 1 - (1 - now) * 0.2;
-                //2. bring next_fs from the right(50%)
-                left = (now * 50)+"%";
-                //3. increase opacity of next_fs to 1 as it moves in
-                opacity = 1 - now;
-                current_fs.css({'transform': 'scale('+scale+')'});
-                next_fs.css({'left': left, 'opacity': opacity});
-            }, 
-            duration: 800, 
-            complete: function(){
-                current_fs.hide();
-                animating = false;
-            }, 
-            //this comes from the custom easing plugin
-            easing: 'easeInOutBack'
-        });
-}
 
 $(".existing").click(function(){
 
@@ -90,9 +118,12 @@ $(".existing").click(function(){
     animating = true;
 
     current_fs = $(this).parent();
-    next_fs = $("#existing");
-    next_fs.show(); 
+    
 
+    next_fs = $("#existingfs1");
+    next_fs.show(); 
+    obj.current = next_fs;
+        console.log(obj.current);
     $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
     current_fs.animate({opacity: 0}, {
@@ -186,7 +217,8 @@ function check(ObjectID) {
                 console.log(ObjectID);
                 obj.submitted = true;
                 gotoStart();
-                loadDetails(details.id,next_fs);
+                loadDetails(details.id);
+                
             } else {
                 alert("Your Password is Incorrect!")
             }
@@ -196,18 +228,55 @@ function check(ObjectID) {
         }
         
     });
+
     console.log(obj.id);
 };
 
 
+function gotoStart(){
+    animating = true;
 
-function loadDetails(ObjectID,field) {
+    current_fs =  $("#existingfs1");
+
+    console.log(current_fs);
+    next_fs = $("#startfs1");
+    next_fs.show(); 
+    obj.current = next_fs;
+        console.log(obj.current);
+
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+
+    current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 50)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'transform': 'scale('+scale+')'});
+                next_fs.css({'left': left, 'opacity': opacity});
+            }, 
+            duration: 800, 
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            }, 
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+
+}
+
+function loadDetails(ObjectID) {
    
     //add parse
     var tester = Parse.Object.extend(DB);
     var query = new Parse.Query(tester);
 
-    var values = field.serializeArray();
+    var values = $("#msform").serializeArray();
     console.log(values);
 
     console.log(obj.id);
@@ -218,18 +287,28 @@ function loadDetails(ObjectID,field) {
         success: function(details) {
             for (var prop in values) {
                   var lookup = values[prop].name;
-
-                  $("#"+lookup).val(details.get(lookup));
-
-                  console.log(name);
+                  console.log(obj[lookup]);
+                  console.log(obj);
                   console.log(details.get(lookup));
-                  console.log("#"+lookup);
-                  console.log();
+                  obj[lookup] = details.get(lookup);
+                  console.log(obj[lookup]);
+                  console.log(obj);
 
-                  var value = values[prop].value;
-                  console.log(value);
-                  console.log(ObjectID);
+                  // $("#"+lookup).val(details.get(lookup));
+
+                  // console.log(name);
+                  // console.log(details.get(lookup));
+                  // console.log("#"+lookup);
+                  // console.log();
+
+                  // var value = values[prop].value;
+                  // console.log(value);
+                  // console.log(ObjectID);
               };
+
+
+            getInfo(obj.id,next_fs);
+
             
             // if(pass === details.get("password")) {
             //     loadDetails(details.get("id"));
@@ -247,8 +326,46 @@ function loadDetails(ObjectID,field) {
 // console.log($('input[name="name"]').val('jay'));
 };
 
+function getInfo(ObjectID,field) {
 
-$(".next").click(function(){
+
+    var values = field.serializeArray();
+    console.log(values);
+
+    console.log(obj.id);
+
+    for (var prop in values) {
+          var lookup = values[prop].name;
+
+
+          console.log(obj[lookup]);
+        var value = values[prop].value;
+          console.log(value);
+
+          $("#"+lookup).val(obj[lookup]);
+
+
+          console.log(obj);
+          console.log("#"+lookup);
+
+          console.log(obj[lookup]);
+          console.log(obj);
+
+          // $("#"+lookup).val(details.get(lookup));
+
+          // console.log(name);
+          // console.log(details.get(lookup));
+          // console.log("#"+lookup);
+          // console.log();
+
+          // var value = values[prop].value;
+          // console.log(value);
+          // console.log(ObjectID);
+      };
+};
+
+
+$(".save").click(function(){
 
     // if(animating) return false;
     
@@ -267,7 +384,7 @@ $(".next").click(function(){
 
     $("#msform").validate({
             errorPlacement: $.noop,
-            ignore: ".ignore"
+            ignore: ".ignore, :hidden"
         }); 
 
        
@@ -275,7 +392,7 @@ $(".next").click(function(){
     // console.log($(this).parent().valid());
     // console.log($(this).valid());
 
-    $("#msform").valid();
+    console.log($("#msform").valid());
         // GET VALUES FROM ARRAY OF INPUTS
         var test = $(this).parent().serializeArray();
         console.log(test);
@@ -285,11 +402,11 @@ $(".next").click(function(){
     if(check){
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
+        obj.current = next_fs;
+            console.log(obj.current);
 
         var test2 = next_fs.serializeArray();
         console.log(test2);
-
-        animating = true;
 
         // get values for next page
         var values = $(this).parent().serializeArray();
@@ -341,8 +458,8 @@ $(".next").click(function(){
         
             });
             
-            shiftPage(current_fs,next_fs)   ;
-            loadDetails(obj.id,next_fs);
+            shiftPage(current_fs,next_fs);
+            getInfo(obj.id,next_fs);
 
         } else {
             //add parse
@@ -441,6 +558,8 @@ $(".next").click(function(){
 
 
         
+    } else {
+        alert("Please Fill out all the Required Information");
     }
     
     
@@ -450,31 +569,39 @@ $(".next").click(function(){
 
 function shiftPage(current_fs, next_fs) {
     //activate next step on progressbar using the index of next_fs
-        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        // $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
         
+        $("#progressbar li").eq(next_fs.index()-1).addClass("active");
+   
         //show the next fieldset
         next_fs.show(); 
-        //hide the current fieldset with style
+        obj.current = next_fs;
+            console.log(obj.current);
+
+        // current_fs.hide();
+        // hide the current fieldset with style
         current_fs.animate({opacity: 0}, {
             step: function(now, mx) {
                 //as the opacity of current_fs reduces to 0 - stored in "now"
                 //1. scale current_fs down to 80%
-                scale = 1 - (1 - now) * 0.2;
+                // scale = 1 - (1 - now) * 0.2;
                 //2. bring next_fs from the right(50%)
                 left = (now * 50)+"%";
                 //3. increase opacity of next_fs to 1 as it moves in
                 opacity = 1 - now;
-                current_fs.css({'transform': 'scale('+scale+')'});
+                // current_fs.css({'transform': 'scale('+scale+')'});
                 next_fs.css({'left': left, 'opacity': opacity});
             }, 
             duration: 800, 
             complete: function(){
                 current_fs.hide();
-                animating = false;
             }, 
             //this comes from the custom easing plugin
             easing: 'easeInOutBack'
         });
+
+
+
 }
 
 function checkifValid(values) {
@@ -503,22 +630,27 @@ $(".previous").click(function(){
     previous_fs = $(this).parent().prev();
     
     //de-activate current step on progressbar
-    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+    // $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
     
     //show the previous fieldset
     previous_fs.show(); 
-    //hide the current fieldset with style
+    obj.current = previous_fs;
+        console.log(obj.current);
+
+
+    // current_fs.hide();
+    // hide the current fieldset with style
     current_fs.animate({opacity: 0}, {
         step: function(now, mx) {
             //as the opacity of current_fs reduces to 0 - stored in "now"
             //1. scale previous_fs from 80% to 100%
-            scale = 0.8 + (1 - now) * 0.2;
+            // scale = 0.8 + (1 - now) * 0.2;
             //2. take current_fs to the right(50%) - from 0%
             left = ((1-now) * 50)+"%";
             //3. increase opacity of previous_fs to 1 as it moves in
             opacity = 1 - now;
             current_fs.css({'left': left});
-            previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+            previous_fs.css({'opacity': opacity});
         }, 
         duration: 800, 
         complete: function(){
@@ -527,98 +659,37 @@ $(".previous").click(function(){
         //this comes from the custom easing plugin
         easing: 'easeInOutBack'
     });
+
 });
 
-$(".submit").click(function(){
+$(".next").click(function(){
 
     current_fs = $(this).parent();
-    next_fs = $("#final");
-    shiftPage(current_fs,next_fs);
+    next_fs = $(this).parent().next();
+
+    $("#msform").validate({
+            errorPlacement: $.noop,
+            ignore: ".ignore, :hidden"
+        }); 
+
+    console.log($("#msform").valid());
+        // GET VALUES FROM ARRAY OF INPUTS
+        var test = current_fs.serializeArray();
+        console.log(test);
+
+        var check = checkifValid(test);
+
+    if(check) {
+        shiftPage(current_fs, next_fs);
+        if(obj.submitted) {
+            getInfo(obj.id,next_fs);
+        }
+    } else {
+        alert("Please Fill out all the Required Information");
+    }    
 
 })
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var form = $("#bstform").show();
- 
-// form.steps({
-//     headerTag: "h3",
-//     bodyTag: "fieldset",
-//     transitionEffect: "slideLeft",
-
-//     onStepChanging: function (event, currentIndex, newIndex)
-//     {
-
-
-
-
-//         // Allways allow previous action even if the current form is not valid!
-//         if (currentIndex > newIndex)
-//         {
-//             return true;
-//         }
-//         // Forbid next action on "Warning" step if the user is to young
-//         if (newIndex === 3 && Number($("#age-2").val()) < 18)
-//         {
-//             return false;
-//         }
-//         // Needed in some cases if the user went back (clean up)
-//         if (currentIndex < newIndex)
-//         {
-//             // To remove error styles
-//             form.find(".body:eq(" + newIndex + ") label.error").remove();
-//             form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
-//         }
-//         form.validate().settings.ignore = ":disabled,:hidden";
-
-
-//         return form.valid();
-//     },
-//     onStepChanged: function (event, currentIndex, priorIndex)
-//     {
-//         // Used to skip the "Warning" step if the user is old enough.
-//         if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
-//         {
-//             form.steps("next");
-//         }
-//         // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
-//         if (currentIndex === 2 && priorIndex === 3)
-//         {
-//             form.steps("previous");
-//         }
-//     },
-//     onFinishing: function (event, currentIndex)
-//     {
-//         form.validate().settings.ignore = ":disabled";
-//         return form.valid();
-//     },
-//     onFinished: function (event, currentIndex)
-//     {
-//         alert("Submitted!");
-//     }
-
-
-// })
-// .validate({
-//     errorPlacement: function errorPlacement(error, element) { element.before(error); },
-//     rules: {
-//         confirm: {
-//             equalTo: "#password"
-//         }
-//     }
-// });
 
