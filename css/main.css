@@ -24,10 +24,12 @@ h4 {
   text-align: center;
   margin-right: 40px;
   margin-left: 40px;
+    color: black;
 }
 
 body {
     font-family: montserrat, arial, verdana;
+    background: whitesmoke;
 }
 
 input[type=text] 
@@ -140,6 +142,18 @@ label.error {
     padding: 10px 5px;
     margin: 10px 5px;
 }
+
+#msform .search.action-button {
+    width: 100px;
+    background: #026BAD;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
 #msform .action-button:hover, #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
@@ -184,7 +198,7 @@ label.error {
 }
 #progressbar li {
     list-style-type: none;
-    color: blue;
+    color: #0099cc;
     text-transform: uppercase;
     font-size: 12px;
     width: 12.5%;
@@ -192,14 +206,13 @@ label.error {
     position: relative;
 }
 
-
 #progressbar a {
-    color: green;
+    color: #0099cc;
     font-weight: bolder;
 }
 
 #progressbar a:hover {
-    color: #1C77C7;
+    color: #23527c;
     text-decoration: underline;
 }
 #progressbar li:before {
@@ -209,8 +222,8 @@ label.error {
     line-height: 20px;
     display: block;
     font-size: 10px;
-    color: #333;
-    background: orange;
+    color: white;
+    background: darkorange;
     border-radius: 3px;
     margin: 0 auto 5px auto;
 }
@@ -219,7 +232,7 @@ label.error {
     content: '';
     width: 100%;
     height: 2px;
-    background: white;
+    background: transparent;
     position: absolute;
     left: -50%;
     top: 9px;
@@ -232,7 +245,7 @@ label.error {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before{
-    background: #27AE60;
+    background: #669900;
     color: white;
 }
 

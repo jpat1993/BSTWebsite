@@ -165,6 +165,7 @@ $(".search").click(function(){
     // document.body.appendChild(div);
 
     var div = document.getElementById("searchResults");
+    div.innerHTML = "";
 
     var searcher = Parse.Object.extend(DB);
     var query = new Parse.Query(searcher);
@@ -424,7 +425,6 @@ $(".save").click(function(){
             // console.log(email);
             // var id = getObjectID(values);
             // console.log(id);
-
             //add parse
             var tester = Parse.Object.extend(DB);
             var query = new Parse.Query(tester);
@@ -458,7 +458,7 @@ $(".save").click(function(){
         
             });
             
-            shiftPage(current_fs,next_fs);
+            //shiftPage(current_fs,next_fs);
             getInfo(obj.id,next_fs);
 
         } else {
@@ -482,7 +482,7 @@ $(".save").click(function(){
                   }
                 });
 
-
+                    var saved = false;
                         // for all the values in form
                     for (var prop in values) {
                       var name = values[prop].name;
@@ -510,6 +510,8 @@ $(".save").click(function(){
 
                 console.log(test);
             } else {
+
+
                 var trial = Parse.Object.extend(DB);
                 var query = new Parse.Query(trial);
                 query.get(obj.id, {
@@ -547,12 +549,9 @@ $(".save").click(function(){
                 });
 
             }
-            
-
-            
 
             obj.first = false;
-            shiftPage(current_fs,next_fs);
+            //shiftPage(current_fs,next_fs);
             
         }
 
