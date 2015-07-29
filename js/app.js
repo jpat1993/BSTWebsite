@@ -8,6 +8,8 @@ var animating; //flag to prevent quick multi-click glitches
 var inputs;
 var obj = {id: "unchanged", submitted: false, first: true, current: "#login"};
 
+var newapp = true;
+
 var fieldsets = ["#login", "#existingfs1", "#startfs1", "#parentfs1", "#sanchalakfs1", "#academicfs1", "#satsangfs1", "#essayfs1", "#niyamfs1", "#finish1"]
 
 Parse.initialize("1dlfQyT8N0OrUJXzRWk9gtWz3fXHYNgKnZNOhWyY", "OTs8JFyPYJ3yrm03qc1jgY9NGCFJBXqsxsNCKT8E");
@@ -52,7 +54,7 @@ function headerClick(id){
 
         var check = checkifValid(test);
 
-    if(check) {
+    if(check != false) {
         shiftPage(current_fs, next_fs);
         if(obj.submitted) {
             getInfo(obj.id,next_fs);
@@ -70,6 +72,7 @@ $(".new").click(function(){
     // console.log($(this).parent());
     // console.log($("#start"));
 
+    newapp = true;
 
     animating = true;
 
@@ -114,6 +117,7 @@ $(".existing").click(function(){
     // console.log($(this).parent());
     // console.log($("#start"));
 
+    newapp = false;
 
     animating = true;
 
@@ -368,30 +372,10 @@ function getInfo(ObjectID,field) {
 
 $(".save").click(function(){
 
-    // if(animating) return false;
-    
-        
-    
-//     $("#msform").validate({
-//   rules: {
-   
-//       required: true,
-//       email: true
-//   }
-// });
-
-//     current_fs = $(this).parent();
-// console.log(current_fs);
-
     $("#msform").validate({
             errorPlacement: $.noop,
             ignore: ".ignore, :hidden"
-        }); 
-
-       
-    // console.log($(this).parent());
-    // console.log($(this).parent().valid());
-    // console.log($(this).valid());
+        });
 
     console.log($("#msform").valid());
         // GET VALUES FROM ARRAY OF INPUTS
@@ -400,7 +384,7 @@ $(".save").click(function(){
 
         var check = checkifValid(test);
 
-    if(check){
+    if(check != false){
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
         obj.current = next_fs;
@@ -412,20 +396,10 @@ $(".save").click(function(){
         // get values for next page
         var values = $(this).parent().serializeArray();
 
-
-        // GET VALUES FROM ARRAY OF INPUTS
-        // var values = $(this).parent().serializeArray();
-        // console.log(values);
-
-
         // var submitted = true;
         if(obj.submitted) {
             console.log(obj.id);
-            // var email = loadDetails(ObjectID);
-            // console.log(email);
-            // var id = getObjectID(values);
-            // console.log(id);
-            //add parse
+
             var tester = Parse.Object.extend(DB);
             var query = new Parse.Query(tester);
             event.preventDefault();
@@ -455,15 +429,15 @@ $(".save").click(function(){
                 error: function(object, error) {
                     alert("Error: " + error.code + " " + error.message);
                 }
-        
+
             });
-            
+
             //shiftPage(current_fs,next_fs);
             getInfo(obj.id,next_fs);
 
         } else {
             //add parse
-            
+
             if(obj.first === true) {
                 var User = Parse.Object.extend(DB);
                 var trial = new User();
@@ -471,13 +445,11 @@ $(".save").click(function(){
                 trial.save(null, {
                   success: function(trial) {
                     // Execute any logic that should take place after the object is saved.
-                    // alert('New object created with objectId: ' + trial.id);
                     var test = trial.id;
                     obj.id = test;
                   },
                   error: function(trial, error) {
                     // Execute any logic that should take place if the save fails.
-                    // error is a Parse.Error with an error code and message.
                     alert('Failed to create new object, with error code: ' + error.message);
                   }
                 });
@@ -500,7 +472,6 @@ $(".save").click(function(){
                               },
                               error: function(trial, error) {
                                 // Execute any logic that should take place if the save fails.
-                                // error is a Parse.Error with an error code and message.
                                 alert('Failed to create new object, with error code: ' + error.message);
                               }
                         });
@@ -533,7 +504,6 @@ $(".save").click(function(){
                               },
                               error: function(trial, error) {
                                 // Execute any logic that should take place if the save fails.
-                                // error is a Parse.Error with an error code and message.
                                 alert('Failed to create new object, with error code: ' + error.message);
                               }
                         });
@@ -543,7 +513,6 @@ $(".save").click(function(){
                   },
                   error: function(User, error) {
                     // The object was not retrieved successfully.
-                    // error is a Parse.Error with an error code and message.
                     alert('Failed to get old object, with error code: ' + error.message);
                   }
                 });
@@ -552,17 +521,15 @@ $(".save").click(function(){
 
             obj.first = false;
             //shiftPage(current_fs,next_fs);
-            
+
         }
 
-
-        
     } else {
         alert("Please Fill out all the Required Information");
     }
-    
-    
-   
+
+
+
 });
 
 
@@ -604,6 +571,7 @@ function shiftPage(current_fs, next_fs) {
 }
 
 function checkifValid(values) {
+    console.log(newapp);
     var pass;
     for (var prop in values) {
         var value = values[prop].value;
@@ -619,8 +587,31 @@ function checkifValid(values) {
                 return false;
             }
         }
+        if(values[prop].name == "email" && newapp)
+        {
+            var email = values[prop].value;
+            var searcher = Parse.Object.extend(DB);
+            var query = new Parse.Query(searcher);
+            query.equalTo("email", email);
+            event.preventDefault();
+            query.first({
+                success: function(results) {
+                    if (results != null)
+                    {
+                        alert("An application with same email already exists!");
+                        console.log("Email exists!");
+                        window.history.go(0);
+                        return false;
+                    }
+                },
+                error: function(error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }
+            });
+
+        }
     }
-    return true;
+
 }
 
 
@@ -662,30 +653,183 @@ $(".previous").click(function(){
 });
 
 $(".next").click(function(){
-
-    current_fs = $(this).parent();
-    next_fs = $(this).parent().next();
-
     $("#msform").validate({
-            errorPlacement: $.noop,
-            ignore: ".ignore, :hidden"
-        }); 
+        errorPlacement: $.noop,
+        ignore: ".ignore, :hidden"
+    });
+
+
+    // console.log($(this).parent());
+    // console.log($(this).parent().valid());
+    // console.log($(this).valid());
 
     console.log($("#msform").valid());
+    // GET VALUES FROM ARRAY OF INPUTS
+    var test = $(this).parent().serializeArray();
+    console.log(test);
+
+    var check = checkifValid(test);
+
+    if(check != false){
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+        obj.current = next_fs;
+        console.log(obj.current);
+
+        var test2 = next_fs.serializeArray();
+        console.log(test2);
+
+        // get values for next page
+        var values = $(this).parent().serializeArray();
+
+
         // GET VALUES FROM ARRAY OF INPUTS
-        var test = current_fs.serializeArray();
-        console.log(test);
+        // var values = $(this).parent().serializeArray();
+        // console.log(values);
 
-        var check = checkifValid(test);
 
-    if(check) {
-        shiftPage(current_fs, next_fs);
+        // var submitted = true;
         if(obj.submitted) {
+            console.log(obj.id);
+            // var email = loadDetails(ObjectID);
+            // console.log(email);
+            // var id = getObjectID(values);
+            // console.log(id);
+            //add parse
+            var tester = Parse.Object.extend(DB);
+            var query = new Parse.Query(tester);
+            event.preventDefault();
+            query.get(obj.id, {
+                success: function(details) {
+                    for (var prop in values) {
+                        var name = values[prop].name;
+                        console.log(name);
+                        var value = values[prop].value;
+                        console.log(value);
+
+                        // add to PARSE
+                        details.set(name, value);
+
+                        details.save(null, {
+                            success: function(details) {
+                                console.log("success");
+                            },
+                            error: function(details, error) {
+                                // Execute any logic that should take place if the save fails.
+                                // error is a Parse.Error with an error code and message.
+                                alert('Failed to create new object, with error code: ' + error.message);
+                            }
+                        });
+                    };
+                },
+                error: function(object, error) {
+                    alert("Error: " + error.code + " " + error.message);
+                }
+
+            });
+
+            shiftPage(current_fs,next_fs);
             getInfo(obj.id,next_fs);
+
+        } else {
+            //add parse
+
+            if(obj.first === true) {
+                var User = Parse.Object.extend(DB);
+                var trial = new User();
+                trial.set("submitted",true);
+                trial.save(null, {
+                    success: function(trial) {
+                        // Execute any logic that should take place after the object is saved.
+                        // alert('New object created with objectId: ' + trial.id);
+                        var test = trial.id;
+                        obj.id = test;
+                    },
+                    error: function(trial, error) {
+                        // Execute any logic that should take place if the save fails.
+                        // error is a Parse.Error with an error code and message.
+                        alert('Failed to create new object, with error code: ' + error.message);
+                    }
+                });
+
+                var saved = false;
+                // for all the values in form
+                for (var prop in values) {
+                    var name = values[prop].name;
+                    console.log(name);
+                    var value = values[prop].value;
+                    console.log(value);
+
+                    // add to PARSE
+                    trial.set(name, value);
+
+
+                    trial.save(null, {
+                        success: function(trial) {
+                            console.log("success");
+                        },
+                        error: function(trial, error) {
+                            // Execute any logic that should take place if the save fails.
+                            // error is a Parse.Error with an error code and message.
+                            alert('Failed to create new object, with error code: ' + error.message);
+                        }
+                    });
+
+
+                }
+
+                console.log(test);
+            } else {
+
+
+                var trial = Parse.Object.extend(DB);
+                var query = new Parse.Query(trial);
+                query.get(obj.id, {
+                    success: function(trial) {
+                        // for all the values in form
+                        for (var prop in values) {
+                            var name = values[prop].name;
+                            console.log(name);
+                            var value = values[prop].value;
+                            console.log(value);
+
+                            // add to PARSE
+                            trial.set(name, value);
+
+
+                            trial.save(null, {
+                                success: function(trial) {
+                                    console.log("success");
+                                },
+                                error: function(trial, error) {
+                                    // Execute any logic that should take place if the save fails.
+                                    // error is a Parse.Error with an error code and message.
+                                    alert('Failed to create new object, with error code: ' + error.message);
+                                }
+                            });
+
+
+                        }
+                    },
+                    error: function(User, error) {
+                        // The object was not retrieved successfully.
+                        // error is a Parse.Error with an error code and message.
+                        alert('Failed to get old object, with error code: ' + error.message);
+                    }
+                });
+
+            }
+
+            obj.first = false;
+            shiftPage(current_fs,next_fs);
+
         }
+
+
+
     } else {
         alert("Please Fill out all the Required Information");
-    }    
+    }
 
 })
 
