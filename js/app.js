@@ -834,5 +834,8 @@ $(".next").click(function(){
 })
 
 
+$(".logout").click(function(){
+    location.reload();
+})
 
 
