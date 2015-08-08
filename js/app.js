@@ -13,7 +13,7 @@ var newapp = true;
 var fieldsets = ["#login", "#existingfs1", "#startfs1", "#parentfs1", "#sanchalakfs1", "#academicfs1", "#satsangfs1", "#essayfs1", "#niyamfs1", "#finish1"]
 
 Parse.initialize("1dlfQyT8N0OrUJXzRWk9gtWz3fXHYNgKnZNOhWyY", "OTs8JFyPYJ3yrm03qc1jgY9NGCFJBXqsxsNCKT8E");
-var DB = "Test";
+var DB = "SEEBSTDB";
 
 function headerClick(id){   
 
@@ -174,7 +174,7 @@ $(".search").click(function(){
     var searcher = Parse.Object.extend(DB);
     var query = new Parse.Query(searcher);
     query.startsWith("email", email);
-    event.preventDefault();
+    // event.preventDefault();
     query.find({
         success: function(results) {
         // alert("Successfully retrieved " + results.length + " scores.");
@@ -524,6 +524,8 @@ $(".save").click(function(){
 
         }
 
+
+        alert("Your Application has been saved!");
     } else {
         alert("Please Fill out all the Required Information");
     }
