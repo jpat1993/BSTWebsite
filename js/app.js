@@ -84,8 +84,9 @@ $(".new").click(function(){
     next_fs = $("#startfs1");
     next_fs.show(); 
     obj.current = next_fs;
-        console.log(obj.current);
+    console.log(obj.current);
 
+    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
     current_fs.animate({opacity: 0}, {
             step: function(now, mx) {
@@ -184,7 +185,8 @@ $(".search").click(function(){
               // alert(object.id + ' - ' + object.get('email') + "name" : object.get('name'));
 
               // div.appendChild(document.
-                var t = document.createTextNode(object.id + ' - ' + object.get('email') + "\n name :" + object.get('name') + "\n");
+                var t = document.createTextNode("Email : " + object.get('email') + " || " + "Name : " + 
+                    object.get('firstname') +' '+  object.get('middlename') +' ' + object.get('lastname') +"\n");
 
               var btn = document.createElement("button");
 
